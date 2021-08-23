@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :user_invitations
 end
 
 # rails generate model Trip user:references total_price:integer booked:boolean date_coming:datetime date_leaving:datetime destination:string type_transportation:string people:integer
