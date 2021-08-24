@@ -4,6 +4,8 @@ class CreateHotelBookings < ActiveRecord::Migration[6.0]
       t.references :trip, null: false, foreign_key: true
       t.references :hotel, null: false, foreign_key: true
       t.boolean :status, default: false
+      t.datetime :date_coming
+      t.datetime :date_leaving
 
       t.timestamps
     end

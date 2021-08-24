@@ -3,19 +3,15 @@ class HotelBookingsController < ApplicationController
     @hotel_booking = HotelBooking.new
     @trip = Trip.find(params[:trip_id])
     @hotel_booking.trip = @trip
-    authorize @hotel_booking
   end
 
   def create
-    @hotel = Hotel.find(params[:hotel_id])
     @trip = Trip.find(params[:trip_id])
     @hotel_booking = HotelBooking.new(hotel_booking_params)
-    @hotel_booking.hotel = @hotel
     @hotel_booking.trip = @trip
     @hotel_booking.trip.user = current_user
-    authorize @hotel_booking
     if @hotel_booking.save
-      redirect_to hotel_booking_path(@hotel_booking), notice: 'New hotel Booking was created successfully!'
+      redirect_to trip_path(@trip), notice: 'New hotel Booking was created successfully!'
     else
       render :new
     end
@@ -36,6 +32,6 @@ class HotelBookingsController < ApplicationController
   private
 
   def hotel_booking_params
-    params.require(:hotel_booking).permit(:booking_date, :people)
+    params.require(:hotel_booking).permit(:date_coming, :date_leaving, :hotel_id)
   end
 end
