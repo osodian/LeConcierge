@@ -1,0 +1,6 @@
+<%= simple_form_for([@trip, @activity_booking, @activity]) do |f| %>
+  <%= f.input :people %>
+  <%= f.input :booking_date %>
+  <%= f.association :activity %>
+  <%= f.button :submit %>
+<%end%>

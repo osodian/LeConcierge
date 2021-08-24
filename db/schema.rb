@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(version: 2021_08_23_145258) do
   end
 
   create_table "hotels", force: :cascade do |t|
-    t.datetime "date_coming"
-    t.datetime "date_leaving"
     t.string "name"
     t.string "address"
     t.integer "price"
     t.text "description"
     t.string "price_class"
+    t.datetime "date_coming"
+    t.datetime "date_leaving"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

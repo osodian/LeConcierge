@@ -1,9 +1,21 @@
 class ActivityBookingsController < ApplicationController
+  def show
+    @activity_booking = ActivityBooking.find(params[:id])
+  end
+
+  def new
+    @activity_booking = ActivityBooking.new
+    @trip = Trip.find(params[:trip_id])
+    @activity_booking.trip = @trip
+    authorize @activity_booking
+  end
+
   def create
     @trip = Trip.find(params[:trip_id])
     @activity_booking = ActivityBooking.new(activity_booking_params)
     @activity_booking.trip = @trip
-    @activity_booking.user = current_user
+    @activity_booking.trip.user = current_user
+    authorize @activity_booking
     if @activity_booking.save
       redirect_to activity_booking_path(@activity_booking), notice: 'New activity Booking was created successfully!'
     else
@@ -26,6 +38,6 @@ class ActivityBookingsController < ApplicationController
   private
 
   def activity_booking_params
-    params.require(:activity_booking).permit(:date)
+    params.require(:activity_booking).permit(:booking_date, :people)
   end
 end
