@@ -1,9 +1,69 @@
 <%= render 'layouts/navbar' %>
 
-<p><%= @trip.destination %></p>
+<div class="show">
+    <div id="left">
+      <h3 id="filters">Filters</h3>
+    </div>
+  <div id="right">
+    <div id="destination">
+      <h3>Your trip to <%= @trip.destination %></h3>
+    </div>
+    <div class="day-program">
+      <h4><%= @trip.date_coming.strftime("%b %d, %Y") %></h4>
+    <div class="card">
+       <div class="row">
+          <div class="col-lg-2" id="activity-icon">
+            <i class="material-icons" style="font-size:60px;">local_bar</i>
+          </div>
+          <div class="col-lg-8" id="activity-infos">
+              <p id="card-content">Evening Activities</p>
+              <h3 id="card-content">Drinks at LE CONCIERGE BAR</h3>
+          </div>
+          <div class="col-md-2" id="edit-icon">
+            <i class="material-icons" style="font-size:32px;">edit</i>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div>
+    <div class="day-program">
+      <h4><%= @trip.date_leaving.strftime("%b %d, %Y") %></h4>
+      <div class="card">
+        <div class="row">
+            <div class="col-lg-2" id="activity-icon">
+              <i class="material-icons" style="font-size:60px;">local_bar</i>
+            </div>
+            <div class="col-lg-8" id="activity-infos">
+              <p id="card-content">Evening Activities</p>
+              <h3 id="card-content">Drinks at LE BAR</h3>
+            </div>
+            <div class="col-md-2" id="edit-icon">
+              <i class="material-icons" style="font-size:32px;">edit</i>
+            </div>
+          </div>
+        </div>
+      <div class="card">
+        <div class="row">
+            <div class="col-lg-2" id="activity-icon">
+              <i class="material-icons" style="font-size:60px;">local_bar</i>
+            </div>
+            <div class="col-lg-8" id="activity-infos">
+              <p id="card-content">Evening Activities</p>
+              <h3 id="card-content">Drinks at LE BAR</h3>
+            </div>
+            <div class="col-md-2" id="edit-icon">
+              <i class="material-icons" style="font-size:32px;">edit</i>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 <p><%= @trip.total_price %></p>
-<p><%= @trip.date_coming %></p>
-<p><%= @trip.date_leaving %></p>
+
+
 <p><%= @trip.type_transportation %></p>
 <p><%= @trip.people %></p>
 <br>
