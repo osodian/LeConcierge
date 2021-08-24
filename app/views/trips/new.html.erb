@@ -1,6 +1,13 @@
 <%= render 'layouts/navbar' %>
 
-<div class="container" id="form-1">
+<div class="container mt-3" id="form-1">
+  <div class="d-flex bar mb-5">
+    <div class="bar-item col-lg-3">Timeframe</div>
+    <%# <div class="bar-item col-lg-3">Transport</div> MORGEN TICKET%>
+    <div class="bar-item col-lg-3">Accommodation</div>
+    <div class="bar-item col-lg-3">Who's joining?</div>
+    <div class="bar-item col-lg-3">Major interests</div>
+  </div>
 <%= form_for(@trip) do |t| %>
   <div class="form-group">
     <%= t.label :date_coming %>
@@ -29,4 +36,3 @@
 </div>
 
 <%= render 'layouts/footer' %>
-<%= yield %>
