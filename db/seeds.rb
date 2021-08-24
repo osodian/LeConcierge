@@ -5,13 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts 'Browse through our user ...'
-user1 = { email: 'oscar.sod@gmx.de', password: '123456' }
 
-[user1].each do |attributes|
-  user = User.create!(attributes)
-  puts "Created #{user.email}"
-end
 
 puts 'Browse through our trips ...'
 madrid = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'madrid', type_transportation: 'plane', people: 2 }

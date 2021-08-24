@@ -1,6 +1,7 @@
 
 .show {
   display: flex;
+  padding-top: 100px;
 }
 
 #left {
@@ -33,10 +34,11 @@
 
 .card {
   min-width: 900px;
+  overflow-y:scroll;
+  z-index:1;
   margin-top: 20px;
   margin-bottom: 60px;
   padding:20px;
-  display: flex;
   justify-content: space-between;
   background-color: black;
 }

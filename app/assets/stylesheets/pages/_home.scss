@@ -53,7 +53,7 @@ p {
 #below-navbar {
   padding-left: 150px;
   padding-right: 150px;
-  padding-top: 20px;
+  padding-top: 100px;
   padding-bottom: 20px;
   background-image: asset-url('background.png');
   background-size: cover;
@@ -86,4 +86,8 @@ p {
 
 .material-icons {
   margin-right: 12px;
+}
+
+#form-1 {
+  margin-top: 200px;
 }
