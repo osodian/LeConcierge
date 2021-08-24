@@ -3,7 +3,7 @@ class CreateActivityBookings < ActiveRecord::Migration[6.0]
     create_table :activity_bookings do |t|
       t.references :trip, null: false, foreign_key: true
       t.references :activity, null: false, foreign_key: true
-      t.boolean :status
+      t.boolean :status, default: false
       t.integer :people
       t.datetime :booking_date
 

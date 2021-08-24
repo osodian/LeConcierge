@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_145258) do
   create_table "activity_bookings", force: :cascade do |t|
     t.bigint "trip_id", null: false
     t.bigint "activity_id", null: false
-    t.boolean "status"
+    t.boolean "status", default: false
     t.integer "people"
     t.datetime "booking_date"
     t.datetime "created_at", precision: 6, null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_145258) do
   create_table "hotel_bookings", force: :cascade do |t|
     t.bigint "trip_id", null: false
     t.bigint "hotel_id", null: false
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["hotel_id"], name: "index_hotel_bookings_on_hotel_id"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_145258) do
   create_table "trips", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "total_price"
-    t.boolean "booked"
+    t.boolean "booked", default: false
     t.datetime "date_coming"
     t.datetime "date_leaving"
     t.string "destination"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_145258) do
   create_table "user_invitations", force: :cascade do |t|
     t.bigint "trip_id", null: false
     t.bigint "user_id", null: false
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["trip_id"], name: "index_user_invitations_on_trip_id"

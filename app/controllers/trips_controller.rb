@@ -2,8 +2,13 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
+
+    # @trips = policy_scope(Trip)
+    #@trips = Trip.all
+
     @trips = policy_scope(Trip).order(created_at: :desc)
   end
+
 
     # if params[:query].present?
     #   @trips = Trip.where(destination: params[:query])
@@ -50,10 +55,11 @@ class TripsController < ApplicationController
     @trips.destroy
     redirect_to trips_path
   end
+#hiwdjwjl
 
   private
 
   def trip_params
-    params.require(:trip).permit(:destination, :price, :number_of_people, :details, :user_id, :photo)
+    params.require(:trip).permit(:type_transportation, :destination, :date_leaving, :date_coming, :booked, :total_price, :people, :user_id)
   end
 end
