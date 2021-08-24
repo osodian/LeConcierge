@@ -22,16 +22,32 @@
 
     <div id="destination">
       <h3>Your trip to <%= @trip.destination %></h3>
+
+      <br>
+      <% if @trip.hotel_bookings.empty? %>
+        <h3><%= link_to 'Do you want to book a hotel?', new_trip_hotel_booking_path(@trip) %></h3>
+      <% else %>
+        <% @trip.hotel_bookings.each do |hotel|%>
+          <h3>Costs per night: $<%= hotel.hotel.price %></h3>
+        <% end %>
+      <% end %>
+      <br>
+
+      <% if @trip.activity_bookings.empty? %>
+        <h3><%= link_to 'Do you want to book a restaurant, sightseeing, club? Or many other things!', new_trip_activity_booking_path(@trip) %></h3>
+      <% else %>
+        <h3><%= link_to 'Add another activity?', new_trip_activity_booking_path(@trip) %></h3>
+      <% end %>
+
+
+
+
     </div>
 
 
   <% @trip.hotel_bookings.each do |hotel|%>
     <div class="day-program">
-      <div class="day">
       <h4>Check in: <%= hotel.date_coming.strftime("%b %d, %Y") %></h4>
-      <%= link_to 'Add Activity to Trip', new_trip_activity_booking_path(@trip) %>
-      </div>
-
     <div class="card">
        <div class="row">
           <div class="col-lg-2" id="activity-icon">
@@ -52,7 +68,10 @@
 
   <% @trip.activity_bookings.each do |activity|%>
     <div class="day-program">
-      <h4><%= activity.booking_date.strftime("%b %d, %Y") %></h4>
+      <div class="day">
+        <h4><%= activity.booking_date.strftime("%b %d, %Y") %></h4>
+        <%= link_to 'Add Activity to Trip', new_trip_activity_booking_path(@trip) %>
+      </div>
     <div class="card">
        <div class="row">
           <div class="col-lg-2" id="activity-icon">
@@ -79,44 +98,27 @@
       <%# <p><%= activity.price_class %>
     <%# <% end %>
 
+  <% @trip.hotel_bookings.each do |hotel|%>
     <div class="day-program">
-      <div class="day">
-      <h4><%= @trip.date_leaving.strftime("%b %d, %Y") %></h4>
-      <%= link_to 'Add Activity to Trip', new_trip_activity_booking_path(@trip) %>
-      </div>
-      <div class="card">
-        <div class="row">
-            <div class="col-lg-2" id="activity-icon">
-              <i class="material-icons" style="font-size:60px;">local_bar</i>
-            </div>
-            <div class="col-lg-8" id="activity-infos">
-              <p id="card-content">Evening Activities</p>
-              <h3 id="card-content">Drinks at LE BAR</h3>
-            </div>
-            <div class="col-md-2" id="edit-icon">
-              <i class="material-icons" style="font-size:32px;">edit</i>
-            </div>
+      <h4>Check out: <%= hotel.date_leaving.strftime("%b %d, %Y") %></h4>
+    <div class="card">
+       <div class="row">
+          <div class="col-lg-2" id="activity-icon">
+            <i class="material-icons" style="font-size:60px;">local_bar</i>
+          </div>
+          <div class="col-lg-8" id="activity-infos">
+              <p id="card-content"><%= hotel.hotel.address %></p>
+              <h3 id="card-content"><%= hotel.hotel.name %></h3>
+          </div>
+          <div class="col-md-2" id="edit-icon">
+            <i class="material-icons" style="font-size:32px;">edit</i>
           </div>
         </div>
-      <div class="card">
-        <div class="row">
-            <div class="col-lg-2" id="activity-icon">
-              <i class="material-icons" style="font-size:60px;">local_bar</i>
-            </div>
-            <div class="col-lg-8" id="activity-infos">
-              <p id="card-content">Evening Activities</p>
-              <h3 id="card-content">Drinks at LE BAR</h3>
-            </div>
-            <div class="col-md-2" id="edit-icon">
-              <i class="material-icons" style="font-size:32px;">edit</i>
-            </div>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
-  </div>
-</div>
+  <% end %>
+
+
 
 
 

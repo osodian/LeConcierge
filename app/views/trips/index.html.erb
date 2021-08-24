@@ -1,9 +1,14 @@
+<%= render 'layouts/navbar' %>
+
+
 <% @trips.each do |trip|%>
   <p><%= link_to trip.destination, trip_path(trip) %></p>
-  <p><%= trip.total_price %></p>
-  <p><%= trip.date_coming %></p>
-  <p><%= trip.date_leaving %></p>
+  <p>Total Price:<%= trip.total_price %></p>
+  <p>Arrival Date:<%= trip.date_coming.strftime("%b %d, %Y") %></p>
+  <p>Leaving Date: <%= trip.date_leaving.strftime("%b %d, %Y")%></p>
   <p><%= trip.type_transportation %></p>
-  <p><%= trip.people %></p>
+  <p>Number of people: <%= trip.people %></p>
   <br>
 <% end %>
+
+<%= render 'layouts/footer' %>
