@@ -1,0 +1,70 @@
+
+.show {
+  display: flex;
+}
+
+#left {
+  text-align: left;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 50px;
+  border-right: 1px solid black;
+}
+
+#filters {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+#right {
+  padding-right: 50px;
+}
+
+#destination {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 100px;
+  text-align: left;
+}
+
+.day-program {
+  margin-bottom: 50px;
+}
+
+.card {
+  min-width: 900px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  padding:20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+}
+#activity-icon {
+  border-right: 1px solid white;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#card-content {
+  color:white;
+}
+
+#activity-infos {
+  border-right: 1px solid white;
+  padding-left:30px;
+  padding-right: 30px;
+}
+
+#edit-icon {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-program {
+  margin-left: 100px;
+}
