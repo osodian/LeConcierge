@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-lights p-3">
   <div class="navbar-brand anti_link">
-    <h3>LeConcierge</h3>
+    <h3 id="title">LE CONCIERGE</h3>
   </div>
   <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link anti_link mr-3" href="#">What is LeConcierge? <span class="sr-only">(current)</span></a>
+        <a class="nav-link anti_link mr-3" href="#">About us<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link anti_link mr-3" href="#">Our Team</a>
@@ -12,10 +12,10 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item anti_link mr-3">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "LOGIN", new_user_session_path, class: "nav-item" %>
         </li>
         <li class="nav-item anti_link mr-3">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "nav-item" %>
         </li>
     </ul>
 </nav>

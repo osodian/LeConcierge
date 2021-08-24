@@ -36,12 +36,10 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-    authorize @trip
   end
 
   def create
     @trip = Trip.new(trip_params)
-    authorize @trip
     @trip.user = current_user
     if @trip.save
       redirect_to trip_path(@trip), notice: 'New Trip was created successfully!'
@@ -55,7 +53,6 @@ class TripsController < ApplicationController
     @trips.destroy
     redirect_to trips_path
   end
-#hiwdjwjl
 
   private
 
