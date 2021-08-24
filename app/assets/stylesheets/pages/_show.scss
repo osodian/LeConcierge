@@ -5,6 +5,7 @@
 }
 
 #left {
+  min-width: 300px;
   text-align: left;
   padding-right: 50px;
   padding-left: 50px;
@@ -30,6 +31,11 @@
 
 .day-program {
   margin-bottom: 50px;
+  margin-left: 100px;
+}
+.day {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card {
@@ -42,6 +48,7 @@
   justify-content: space-between;
   background-color: black;
 }
+
 #activity-icon {
   border-right: 1px solid white;
   color: white;
@@ -67,6 +74,20 @@
   justify-content: center;
 }
 
-.day-program {
-  margin-left: 100px;
+.active {
+  color: black !important;
+  letter-spacing: 3px;
+  font-weight: bold;
+  border-radius: 0 !important;
+  background-color: white !important;
+  border: 3px solid black;
+  text-align: center;
+}
+
+#v-pills-overview-tab {
+  min-width: 200px;
+}
+
+#v-pills-date-tab {
+  min-width: 200px;
 }
