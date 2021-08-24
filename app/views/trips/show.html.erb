@@ -6,7 +6,7 @@
 <p><%= @trip.date_leaving %></p>
 <p><%= @trip.type_transportation %></p>
 <p><%= @trip.people %></p>
-
+<br>
 <% if @trip.activities.empty? %>
   <p>No activities added yet</p>
 <% else %>
@@ -27,6 +27,9 @@
 <%= link_to 'Add Activity to Trip', new_trip_activity_booking_path(@trip) %>
 <br>
 <%= link_to 'Add Hotel to Trip', new_trip_hotel_booking_path(@trip) %>
+<br>
+<%= link_to 'All Trips', trips_path %>
+<br>
 <br>
 
 <% if @trip.hotels.empty? %>
