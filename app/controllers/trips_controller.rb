@@ -46,6 +46,7 @@ class TripsController < ApplicationController
     @trips.destroy
     redirect_to trips_path
   end
+#hiwdjwjl
 
   private
 
