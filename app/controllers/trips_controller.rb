@@ -4,9 +4,9 @@ class TripsController < ApplicationController
   def index
 
     # @trips = policy_scope(Trip)
-    #@trips = Trip.all
+    @trips = Trip.all
 
-    @trips = policy_scope(Trip).order(created_at: :desc)
+    # @trips = policy_scope(Trip).order(created_at: :desc)
   end
 
 

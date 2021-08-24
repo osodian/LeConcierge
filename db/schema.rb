@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2021_08_23_145258) do
     t.bigint "trip_id", null: false
     t.bigint "hotel_id", null: false
     t.boolean "status", default: false
+    t.datetime "date_coming"
+    t.datetime "date_leaving"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["hotel_id"], name: "index_hotel_bookings_on_hotel_id"
@@ -49,8 +51,6 @@ ActiveRecord::Schema.define(version: 2021_08_23_145258) do
   end
 
   create_table "hotels", force: :cascade do |t|
-    t.datetime "date_coming"
-    t.datetime "date_leaving"
     t.string "name"
     t.string "address"
     t.integer "price"
