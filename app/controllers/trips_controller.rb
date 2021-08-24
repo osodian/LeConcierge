@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
   def index
-    @trips = policy_scope(Trip)
-
+    # @trips = policy_scope(Trip)
+    @trips = Trip.all
     # if params[:query].present?
     #   @trips = Trip.where(destination: params[:query])
     # else
@@ -50,6 +50,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:destination, :price, :number_of_people, :details, :user_id, :photo)
+    params.require(:trip).permit(:type_transportation, :destination, :date_leaving, :date_coming, :booked, :total_price, :people, :user_id)
   end
 end

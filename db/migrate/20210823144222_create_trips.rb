@@ -3,7 +3,7 @@ class CreateTrips < ActiveRecord::Migration[6.0]
     create_table :trips do |t|
       t.references :user, null: false, foreign_key: true
       t.integer :total_price
-      t.boolean :booked
+      t.boolean :booked, default: false
       t.datetime :date_coming
       t.datetime :date_leaving
       t.string :destination
