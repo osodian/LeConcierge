@@ -2,22 +2,23 @@
 <%= render 'layouts/navbar' %>
 
 <div id="below-navbar">
-  <div id="subheader">
-    <h1>Le Trip?</h1>
-    <h3>Le Concierge.</h3>
-
-  <form class="row g-3" id="form_1">
-
-  <div class="col-md-12">
-    <% if policy(Trip).create? %>
-      <%= link_to "Use LeConcierge", new_trip_path, class: "btn btn-outline-dark", id: "button_1" %>
-    <% end %>
+  <div id="slogan-buttons">
+    <div id="slogan">
+      <h1 id="title">
+        LE TRIP?
+        <br>
+        LE CONCIERGE.
+      </h1>
+    </div>
+    <div>
+      <% if policy(Trip).create? %>
+        <%= link_to "SIGN UP", new_trip_path, class: "btn btn-primary", id:"button-home-1" %>
+      <% end %>
+      <% if policy(Trip).create? %>
+        <%= link_to "BOOK A TRIP", new_trip_path, class: "btn btn-primary", id:"button-home-2" %>
+      <% end %>
+    </div>
   </div>
-  </form>
-  <div class="below-form">
-    <h2 id="extreme_shadow">Don't have a concierge yet? Sign in for free!</h2>
-  </div>
-</div>
 </div>
 
 <div id="home-text">
@@ -51,5 +52,6 @@
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quae, quibusdam eum saepe animi laboriosam eius repellendus aut numquam sed praesentium sit at dolorem voluptas et deleniti quod corrupti exercitationem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quae, quibusdam eum saepe animi laboriosam eius repellendus aut numquam sed praesentium sit at dolorem voluptas et deleniti quod corrupti exercitationem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quae, quibusdam eum saepe animi laboriosam eius repellendus aut numquam sed praesentium sit at dolorem voluptas et deleniti quod corrupti exercitationem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quae, quibusdam eum saepe animi laboriosam eius repellendus aut numquam sed praesentium sit at dolorem voluptas et deleniti quod corrupti exercitationem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quae, quibusdam eum saepe animi laboriosam eius repellendus aut numquam sed praesentium sit at dolorem voluptas et deleniti quod corrupti exercitationem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quae, quibusdam eum saepe animi laboriosam eius repellendus aut numquam sed praesentium sit at dolorem voluptas et deleniti quod corrupti exercitationem.</p>
   </div>
 </div>
+
 
 <%= render 'layouts/footer' %>
