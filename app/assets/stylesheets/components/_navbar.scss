@@ -1,3 +1,8 @@
+
+#title {
+  letter-spacing: 1px;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -12,6 +17,12 @@
 }
 
 .navbar {
-  background-color: rgba(220, 220, 220, 0.2);
+  position: sticky;
+  top: 0;
+  background-color: rgba(235, 235, 235, 0.2);
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item {
+  font-weight: bold;
 }
