@@ -8,6 +8,7 @@
 <%= yield %>
 
 
+
 <%= form_for(@trip) do |t| %>
   <div class="form-group">
     <%= t.label :date_coming %>
@@ -33,3 +34,4 @@
   <%= t.submit class: "btn btn-outline-dark m-3 p-2" %>
   </div>
 <%end%>
+

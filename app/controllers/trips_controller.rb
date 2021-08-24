@@ -1,7 +1,15 @@
 class TripsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   def index
+
     # @trips = policy_scope(Trip)
-    @trips = Trip.all
+    #@trips = Trip.all
+
+    @trips = policy_scope(Trip).order(created_at: :desc)
+  end
+
+
     # if params[:query].present?
     #   @trips = Trip.where(destination: params[:query])
     # else
@@ -21,7 +29,6 @@ class TripsController < ApplicationController
     #     info_window: render_to_string(partial: "info_window", locals: { trip: trip })
     #   }
     # end
-  end
 
   def show
     @trip = Trip.find(params[:id])
@@ -29,10 +36,12 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    authorize @trip
   end
 
   def create
     @trip = Trip.new(trip_params)
+    authorize @trip
     @trip.user = current_user
     if @trip.save
       redirect_to trip_path(@trip), notice: 'New Trip was created successfully!'
