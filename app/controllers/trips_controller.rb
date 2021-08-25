@@ -2,13 +2,18 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-
     # @trips = policy_scope(Trip)
     @trips = Trip.all
-
     # @trips = policy_scope(Trip).order(created_at: :desc)
+    @markers = @trips.geocoded.map do |trip|
+      {
+        lat: trip.latitude,
+        lng: trip.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {
+        trip: trip })
+      }
+    end
   end
-
 
     # if params[:query].present?
     #   @trips = Trip.where(destination: params[:query])
