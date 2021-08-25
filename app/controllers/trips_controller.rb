@@ -9,7 +9,7 @@ class TripsController < ApplicationController
       {
         lat: trip.latitude,
         lng: trip.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {
+        info_window: render_to_string(partial: "info_window_trip", locals: {
         trip: trip })
       }
     end
@@ -37,6 +37,24 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+
+    markers_hotels = @trip.hotels.geocoded.map do |hotel|
+      {
+        lat: hotel.latitude,
+        lng: hotel.longitude,
+        info_window: render_to_string(partial: "info_window_hotel", locals: {
+        hotel: hotel })
+      }
+    end
+    markers_activities = @trip.activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        info_window: render_to_string(partial: "info_window_activity", locals: {
+        activity: activity })
+      }
+    end
+    @markers = markers_hotels.concat markers_activities
   end
 
   def new
