@@ -32,6 +32,17 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    count_price = 0
+    final_price = 0
+    @trip.activities.each do |activity|
+      if activity.price.nil?
+        puts "hey"
+      else
+        count_price += 1
+        final_price += activity.price
+      end
+    end
+    @trip.total_price = final_price
   end
 
   def new
