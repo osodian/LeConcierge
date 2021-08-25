@@ -16,19 +16,17 @@
     </div>
 
 
-
-
   <div id="right">
 
     <div id="destination">
       <h3>Your trip to <%= @trip.destination %></h3>
-
       <br>
       <% if @trip.hotel_bookings.empty? %>
         <h3><%= link_to 'Do you want to book a hotel?', trip_hotel_bookings_path(@trip) %></h3>
       <% else %>
         <% @trip.hotel_bookings.each do |hotel|%>
           <h3>Costs per night: $<%= hotel.hotel.price %></h3>
+          <h3>Total Costs Hotel (shows 2 nights): $<%= hotel.hotel.price + hotel.hotel.price %></h3>
         <% end %>
       <% end %>
       <br>
@@ -36,14 +34,11 @@
       <% if @trip.activity_bookings.empty? %>
         <h3><%= link_to 'Do you want to book a restaurant, sightseeing, club? Or many other things!', trip_activity_bookings_path(@trip) %></h3>
       <% else %>
+        <h3>Fixed Prices for Activities: $<%= @trip.total_price %></h3>
         <h3><%= link_to 'Add another activity?', trip_activity_bookings_path(@trip) %></h3>
       <% end %>
 
-
-
-
     </div>
-
 
   <% @trip.hotel_bookings.each do |hotel|%>
     <div class="day-program">
@@ -178,5 +173,11 @@
     <p><%= hotel.price_class %></p>
   <% end %>
 <% end %>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 <%= render 'layouts/footer' %>

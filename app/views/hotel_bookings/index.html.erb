@@ -1,4 +1,12 @@
+
+
+
 <% @hotels.each do |hotel|%>
+  <% if hotel.photo.attached? %>
+    <%= image_tag hotel.photo , height: 500, width: 700, crop: :fill %>
+  <% else %>
+    <h4>"No pictures"</h4>
+  <% end %>
   <p><%= hotel.name %></p>
   <p><%= hotel.address %></p>
   <p><%= hotel.description %></p>
