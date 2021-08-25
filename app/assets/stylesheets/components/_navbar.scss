@@ -29,6 +29,12 @@
   font-weight: bold;
 }
 
-#gold {
+#le-concierge {
+  font-style: italic;
+  font-family: 'Cambo', serif;
   color: #997E41;
+  font-weight: bold;
+  font-size: 32px;
 }
+
+#le-concierge:hover { text-decoration: none; }
