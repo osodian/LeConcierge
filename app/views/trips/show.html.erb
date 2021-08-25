@@ -34,9 +34,9 @@
       <br>
 
       <% if @trip.activity_bookings.empty? %>
-        <h3><%= link_to 'Do you want to book a restaurant, sightseeing, club? Or many other things!', new_trip_activity_booking_path(@trip) %></h3>
+        <h3><%= link_to 'Do you want to book a restaurant, sightseeing, club? Or many other things!', activity_bookings_path(@trip) %></h3>
       <% else %>
-        <h3><%= link_to 'Add another activity?', new_trip_activity_booking_path(@trip) %></h3>
+        <h3><%= link_to 'Add another activity?', trip_activity_bookings_path(@trip) %></h3>
       <% end %>
 
 
@@ -48,8 +48,9 @@
   <% @trip.hotel_bookings.each do |hotel|%>
     <div class="day-program">
       <h4>Check in: <%= hotel.date_coming.strftime("%b %d, %Y") %></h4>
-      <%= link_to 'Show this hotel', trip_hotel_booking_path(@trip, hotel) %>
-      <%= link_to 'Edit this hotel booking', edit_trip_hotel_booking_path(@trip, hotel) %>
+      <%= link_to 'Show this Hotel', trip_hotel_booking_path(@trip, hotel) %>
+      <%= link_to 'Add another Hotel to Trip', hotel_bookings_path(@trip) %>
+      <%= link_to 'Edit this Hotel booking', edit_trip_hotel_booking_path(@trip, hotel) %>
       <%= link_to 'Delete Hotel Booking', hotel_booking_path(hotel), method: :delete, data: { confirm: "Are you sure?" }%>
     <div class="card">
        <div class="row">
@@ -73,7 +74,8 @@
     <div class="day-program">
       <div class="day">
         <h4><%= activity.booking_date.strftime("%b %d, %Y") %></h4>
-        <%= link_to 'Add Activity to Trip', new_trip_activity_booking_path(@trip) %>
+
+        <%= link_to 'Add an Activity to Trip', trip_activity_bookings_path(@trip) %>
         <%= link_to 'Show this activity', trip_activity_booking_path(@trip, activity) %>
         <%= link_to 'Edit this activity', edit_trip_activity_booking_path(@trip, activity) %>
 

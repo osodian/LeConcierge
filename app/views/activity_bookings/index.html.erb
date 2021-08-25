@@ -1,0 +1,16 @@
+<% @activities.each do |activity|%>
+  <p><%= activity.name %></p>
+  <p><%= activity.address %></p>
+  <p><%= activity.description %></p>
+  <p><%= activity.category %></p>
+  <% if activity.price.nil? %>
+    <p><%= activity.price_class %></p>
+  <% else %>
+    <p><%= activity.price %></p>
+    <p><%= activity.price_class %></p>
+  <% end %>
+  <%= link_to 'Add this Activity to the Trip', new_trip_activity_booking_path(@trip, activity_id: activity.id) %>
+  <br>
+<% end %>
+
+<%= render 'layouts/footer' %>

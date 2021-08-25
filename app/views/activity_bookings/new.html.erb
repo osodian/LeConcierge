@@ -1,10 +1,8 @@
 <h1 id="add-activity">ADD A NEW ACTIVITY</h1>
-
 <%= simple_form_for([@trip, @activity_booking]) do |t| %>
 <div class="row">
-<div class="form-group col-lg-6">
-  <%= t.association :activity, class: 'form-control' %>
-</div>
+<%= t.input :activity_id, input_html: { value: params[:activity_id] }, as: :hidden %>
+
 <div class="form-group col-lg-6">
   <%= t.input :people, class: 'form-control' %>
 </div>
