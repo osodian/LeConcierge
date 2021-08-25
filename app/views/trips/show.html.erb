@@ -34,7 +34,7 @@
       <br>
 
       <% if @trip.activity_bookings.empty? %>
-        <h3><%= link_to 'Do you want to book a restaurant, sightseeing, club? Or many other things!', activity_bookings_path(@trip) %></h3>
+        <h3><%= link_to 'Do you want to book a restaurant, sightseeing, club? Or many other things!', trip_activity_bookings_path(@trip) %></h3>
       <% else %>
         <h3><%= link_to 'Add another activity?', trip_activity_bookings_path(@trip) %></h3>
       <% end %>

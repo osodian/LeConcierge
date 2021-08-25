@@ -2,11 +2,11 @@
 
 <div class="container mt-3" id="form-1">
   <div class="d-flex bar mb-5">
-    <div class="bar-item col-lg-3">Timeframe</div>
+    <div class="bar-item col-lg-3" id="bar-item-1">Destination</div>
     <%# <div class="bar-item col-lg-3">Transport</div> MORGEN TICKET%>
-    <div class="bar-item col-lg-3">Accommodation</div>
-    <div class="bar-item col-lg-3">Who's joining?</div>
-    <div class="bar-item col-lg-3">Major interests</div>
+    <div class="bar-item col-lg-3">Timeframe</div>
+    <div class="bar-item col-lg-3">People</div>
+    <div class="bar-item col-lg-3" id="bar-item-4">Transport</div>
   </div>
 <%= form_for(@trip) do |t| %>
   <div class="form-group">
@@ -25,13 +25,6 @@
     </div>
   </div>
 
-<div class="form-group">
-  <div class="label text-center">
-    <%= t.label :Do_you_need_a_transport_recommendation? %>
-  </div>
-    <%= t.select :type_transportation, collection: User::TRANSPORTATION, class: 'form-control' %>
-  </div>
-
   <div class="form-group">
     <div class="label text-center">
     <%= t.label :How_many_people_are_you? %>
@@ -39,12 +32,22 @@
     <%= t.number_field :people, class: 'form-control', min: 1 %>
   </div>
 
-  <div class="form-button">
+  <div class="form-group">
+    <div class="label text-center">
+     <%= t.label :Do_you_need_a_transport_recommendation? %>
+    </div>
+     <%= t.select :type_transportation, collection: User::TRANSPORTATION, class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
     <div class="label text-center">
       <%= t.label :Thank_you_for_the_infos! %>
       </div>
     <%= t.submit class: "form-control btn btn-primary", id:"button-home-1" %>
   </div>
+
+
 <%end%>
 </div>
 
