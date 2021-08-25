@@ -23,15 +23,17 @@ class ActivityBookingsController < ApplicationController
   end
 
   def destroy
-    @activity_bookings = ActivityBooking.find(params[:id])
-    @activity_bookings.destroy
-    redirect_to activity_bookings_path
+    @activity_booking = ActivityBooking.find(params[:id])
+    @trip = @activity_booking.trip
+    @activity_booking.destroy
+    redirect_to trip_path(@trip)
   end
 
   def update
-    @activity_bookings = ActivityBooking.find(params[:id])
-    @activity_bookings.update(activity_booking_params)
-    redirect_to trip_path(@trip), notice: 'Activity has been edited successfully!'
+    @activity_booking = ActivityBooking.find(params[:id])
+    @activity_booking.update(activity_booking_params)
+    @trip = @activity_booking.trip
+    redirect_to trip_path(@trip)
   end
 
   def edit
