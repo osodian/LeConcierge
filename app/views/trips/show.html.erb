@@ -25,7 +25,7 @@
 
       <br>
       <% if @trip.hotel_bookings.empty? %>
-        <h3><%= link_to 'Do you want to book a hotel?', new_trip_hotel_booking_path(@trip) %></h3>
+        <h3><%= link_to 'Do you want to book a hotel?', trip_hotel_bookings_path(@trip) %></h3>
       <% else %>
         <% @trip.hotel_bookings.each do |hotel|%>
           <h3>Costs per night: $<%= hotel.hotel.price %></h3>
@@ -34,7 +34,7 @@
       <br>
 
       <% if @trip.activity_bookings.empty? %>
-        <h3><%= link_to 'Do you want to book a restaurant, sightseeing, club? Or many other things!', activity_bookings_path(@trip) %></h3>
+        <h3><%= link_to 'Do you want to book a restaurant, sightseeing, club? Or many other things!', trip_activity_bookings_path(@trip) %></h3>
       <% else %>
         <h3><%= link_to 'Add another activity?', trip_activity_bookings_path(@trip) %></h3>
       <% end %>
@@ -49,7 +49,7 @@
     <div class="day-program">
       <h4>Check in: <%= hotel.date_coming.strftime("%b %d, %Y") %></h4>
       <%= link_to 'Show this Hotel', trip_hotel_booking_path(@trip, hotel) %>
-      <%= link_to 'Add another Hotel to Trip', hotel_bookings_path(@trip) %>
+      <%= link_to 'Add another Hotel to Trip', trip_hotel_bookings_path(@trip) %>
       <%= link_to 'Edit this Hotel booking', edit_trip_hotel_booking_path(@trip, hotel) %>
       <%= link_to 'Delete Hotel Booking', hotel_booking_path(hotel), method: :delete, data: { confirm: "Are you sure?" }%>
     <div class="card">

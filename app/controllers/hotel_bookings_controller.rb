@@ -1,6 +1,7 @@
 class HotelBookingsController < ApplicationController
   def index
-    @hotel_bookings = HotelBooking.all
+    @trip = Trip.find(params[:trip_id])
+    @hotels = Hotel.all
   end
 
   def show

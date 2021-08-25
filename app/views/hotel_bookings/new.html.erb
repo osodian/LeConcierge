@@ -1,6 +1,7 @@
 <%= simple_form_for([@trip, @hotel_booking]) do |f| %>
+  <%= f.input :hotel_id, input_html: { value: params[:hotel_id] }, as: :hidden %>
   <%= f.input :date_coming %>
   <%= f.input :date_leaving %>
-  <%= f.association :hotel %>
+  <%# <%= f.association :hotel %> %>
   <%= f.button :submit %>
 <%end%>
