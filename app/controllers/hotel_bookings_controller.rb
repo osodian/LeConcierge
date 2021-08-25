@@ -22,15 +22,23 @@ class HotelBookingsController < ApplicationController
   end
 
   def destroy
-    @hotel_bookings = HotelBooking.find(params[:id])
-    @hotel_bookings.destroy
-    redirect_to hotel_bookings_path
+    @hotel_booking = HotelBooking.find(params[:id])
+    @trip = @hotel_booking.trip
+    @hotel_booking.destroy
+    redirect_to trip_path(@trip)
   end
 
   def update
-    @hotel_bookings = HotelBooking.find(params[:id])
-    @hotel_bookings.update(hotel_booking_params)
-    redirect_to hotel_bookings_path
+    @hotel_booking = HotelBooking.find(params[:id])
+    @hotel_booking.update(hotel_booking_params)
+    @trip = @hotel_booking.trip
+    redirect_to trip_path(@trip)
+  end
+
+  def edit
+    @hotel_booking = HotelBooking.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @hotel_booking.trip = @trip
   end
 
   private
