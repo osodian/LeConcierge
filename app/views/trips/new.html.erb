@@ -1,21 +1,26 @@
 <%= render 'layouts/navbar' %>
 
-<div class="container mt-3" id="form-1">
-  <div class="d-flex bar mb-5">
-    <div class="bar-item col-lg-3" id="bar-item-1">Destination</div>
-    <%# <div class="bar-item col-lg-3">Transport</div> MORGEN TICKET%>
-    <div class="bar-item col-lg-3">Timeframe</div>
-    <div class="bar-item col-lg-3">People</div>
-    <div class="bar-item col-lg-3" id="bar-item-4">Transport</div>
+<div class="container mt-3 mb-5" data-controller="trips-form">
+  <div class="d-flex mb-5" id="bar-1">
+    <div class="bar-item col-lg-3 completed" id="destination-tab">Destination</div>
+    <div class="bar-item col-lg-3" id="timeframe-tab" data-trips-form-target="timeframeTab">Timeframe</div>
+    <div class="bar-item col-lg-3" id="people-tab" data-trips-form-target="peopleTab">People</div>
+    <div class="bar-item col-lg-3" id="transport-tab" data-trips-form-target="transportTab">Transport</div>
   </div>
-<%= form_for(@trip) do |t| %>
-  <div class="form-group">
+
+  <%= form_for(@trip) do |t| %>
+  <div class="form-group" data-trips-form-target="group">
     <div class="label text-center">
     <%= t.label :Which_destination_would_you_like_to_visit? %>
     </div>
-    <%= t.text_field :destination, class: 'form-control', placeholder: '...' %>
+    <div>
+    <%= t.text_field :destination, class: 'form-control', placeholder: 'Hamburg' %>
+    </div>
+    <div class="text-right">
+    <div class="btn mt-5 text-center next" id="button-home-2" data-action="click->trips-form#revealTimeframe">Next</div>
+    </div>
   </div>
-  <div class="form-group">
+  <div class="form-group d-none" data-trips-form-target="timeframe group">
     <div class="label text-center">
     <%= t.label :What_is_the_timeframe_of_your_trip? %>
     </div>
@@ -23,28 +28,42 @@
     <%= t.date_field :date_coming, class: 'form-control col-lg-6', id: 'timeframe', placeholder: 'Check-in date' %>
     <%= t.date_field :date_leaving, class: 'form-control col-lg-6', id: 'timeframe', placeholder: 'Check-out date' %>
     </div>
+    <div class="text-right">
+    <div class="btn mt-5 text-center next" id="button-home-2" data-action="click->trips-form#revealPeople">Next</div>
+    </div>
   </div>
-
-  <div class="form-group">
+  <div class="form-group d-none" data-trips-form-target="people group">
     <div class="label text-center">
     <%= t.label :How_many_people_are_you? %>
     </div>
+    <div>
     <%= t.number_field :people, class: 'form-control', min: 1 %>
+    </div>
+    <div class="text-right">
+    <div class="btn mt-5 text-center next" id="button-home-2" data-action="click->trips-form#revealTransport">Next</div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <div class="label text-center">
+  <div class="form-group d-none" data-trips-form-target="transport group">
+    <div class="label text-center ">
      <%= t.label :Do_you_need_a_transport_recommendation? %>
     </div>
+    <div>
      <%= t.select :type_transportation, collection: User::TRANSPORTATION, class: 'form-control' %>
+    </div>
+    <div class="text-right">
+    <div class="btn mt-5 text-center next" id="button-home-2" data-action="click->trips-form#revealSubmit">Next</div>
+    </div>
   </div>
 
 
-  <div class="form-group">
+  <div class="form-group d-none" data-trips-form-target="submit group">
     <div class="label text-center">
       <%= t.label :Thank_you_for_the_infos! %>
-      </div>
-    <%= t.submit class: "form-control btn btn-primary", id:"button-home-1" %>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-primary col-lg-4", id="button-submit">Create your trip!</button>
+    </div>
   </div>
 
 

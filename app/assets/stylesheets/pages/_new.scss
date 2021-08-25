@@ -1,4 +1,4 @@
-.bar {
+#bar-1 {
   padding-top: 150px;
   text-align: center;
   display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
@@ -14,14 +14,15 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
 }
 
-#bar-item-1 {
+#destination-tab {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
-#bar-item-4 {
+#transport-tab {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -52,4 +53,13 @@ form {margin: 50px;}
   font-size: 36px;
   padding: 10px;
   text-align: center;
+}
+
+.next {
+  cursor: pointer;
+}
+
+.completed {
+  background-color: #BF9D51;
+  color: white;
 }
