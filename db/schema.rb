@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_08_25_123156) do
 
   # These are extensions that must be enabled in order to support this database
@@ -46,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_08_25_123156) do
     t.integer "price_class"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "activity_bookings", force: :cascade do |t|
@@ -81,6 +84,8 @@ ActiveRecord::Schema.define(version: 2021_08_25_123156) do
     t.integer "price_class"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "trip_reviews", force: :cascade do |t|
@@ -103,6 +108,8 @@ ActiveRecord::Schema.define(version: 2021_08_25_123156) do
     t.integer "people"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 

@@ -13,6 +13,7 @@ user_one = { email: 'osodddd@gmx.de', password: '123456' }
   puts "Created #{user.email}"
 end
 
+
 puts 'Browse through our trips ...'
 madrid = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'madrid', type_transportation: 'plane', people: 2 }
 
