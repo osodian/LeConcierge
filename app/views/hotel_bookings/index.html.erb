@@ -1,14 +1,14 @@
-<% @hotel_bookings.each do |hotel|%>
-  <p><%= hotel.hotel.name %></p>
-  <p><%= hotel.hotel.address %></p>
-  <p><%= hotel.hotel.description %></p>
-  <% if hotel.hotel.price.nil? %>
-    <p><%= hotel.hotel.price_class %></p>
+<% @hotels.each do |hotel|%>
+  <p><%= hotel.name %></p>
+  <p><%= hotel.address %></p>
+  <p><%= hotel.description %></p>
+  <% if hotel.price.nil? %>
+    <p><%= hotel.price_class %></p>
   <% else %>
-    <p><%= hotel.hotel.price %></p>
-    <p><%= hotel.hotel.price_class %></p>
+    <p><%= hotel.price %></p>
+    <p><%= hotel.price_class %></p>
   <% end %>
-  <%= link_to 'Add this hotel to the Trip', new_trip_hotel_booking_path(hotel) %>
+  <%= link_to 'Add this Hotel to the Trip', new_trip_hotel_booking_path(@trip, hotel_id: hotel.id) %>
   <br>
 <% end %>
 
