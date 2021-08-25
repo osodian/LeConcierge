@@ -1,4 +1,9 @@
 <% @activities.each do |activity|%>
+  <% if activity.photo.attached? %>
+    <%= image_tag activity.photo , height: 500, width: 700, crop: :fill %>
+  <% else %>
+    <h4>"No pictures"</h4>
+  <% end %>
   <p><%= activity.name %></p>
   <p><%= activity.address %></p>
   <p><%= activity.description %></p>
