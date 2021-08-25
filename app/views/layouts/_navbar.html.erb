@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-expand-lg navbar-lights p-3">
   <div class="navbar-brand anti_link">
     <h3 style= "font-style: italic;" id="gold">LE CONCIERGE</h3>
@@ -10,21 +12,27 @@
         <a class="nav-link anti_link mr-3" href="#">Our Team</a>
       </li>
     </ul>
+
+    <% if user_signed_in? %>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item anti_link mr-3">
         <%= link_to 'HOME', root_path, class: "nav-item"  %>
       </li>
-
       <li class="nav-item anti_link mr-3">
         <%= link_to 'ALL TRIPS', trips_path, class: "nav-item"  %>
-      </li>
-
-      <li class="nav-item anti_link mr-3">
-        <%= link_to "LOGIN", new_user_session_path, class: "nav-item" %>
       </li>
       <li class="nav-item anti_link mr-3">
         <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "nav-item" %>
       </li>
-
     </ul>
+    <% else %>
+     <ul class="navbar-nav ml-auto">
+      <li class="nav-item anti_link mr-3">
+        <%= link_to 'HOME', root_path, class: "nav-item"  %>
+      </li>
+      <li class="nav-item anti_link mr-3">
+        <%= link_to "LOGIN", new_user_session_path, class: "nav-item" %>
+      </li>
+    </ul>
+  <% end %>
 </nav>
