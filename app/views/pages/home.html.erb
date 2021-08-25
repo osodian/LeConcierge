@@ -8,12 +8,16 @@
       <h1 id="title">CONCIERGE. </h1>
 
     </div>
+    <% if user_signed_in? %>
     <div>
-
+        <%= link_to "BOOK A TRIP", new_trip_path, class: "btn btn-primary", id:"button-home-2" %>
+    </div>
+    <% else %>
+    <div>
         <%= link_to "SIGN UP", new_trip_path, class: "btn btn-primary", id:"button-home-1" %>
         <%= link_to "BOOK A TRIP", new_trip_path, class: "btn btn-primary", id:"button-home-2" %>
-
     </div>
+    <% end %>
   </div>
 </div>
 
