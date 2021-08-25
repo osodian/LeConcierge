@@ -1,4 +1,8 @@
 class HotelBookingsController < ApplicationController
+  def index
+    @hotel_bookings = HotelBooking.all
+  end
+
   def show
     @hotel_booking = HotelBooking.find(params[:id])
   end

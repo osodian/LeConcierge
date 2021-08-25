@@ -1,4 +1,9 @@
 class ActivityBookingsController < ApplicationController
+  def index
+    @trip = Trip.find(params[:trip_id])
+    @activities = Activity.all
+  end
+
   def show
     @activity_booking = ActivityBooking.find(params[:id])
   end
