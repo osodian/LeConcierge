@@ -1,4 +1,8 @@
 class HotelBookingsController < ApplicationController
+  def show
+    @hotel_booking = HotelBooking.find(params[:id])
+  end
+
   def new
     @hotel_booking = HotelBooking.new
     @trip = Trip.find(params[:trip_id])
@@ -10,7 +14,7 @@ class HotelBookingsController < ApplicationController
     @hotel_booking = HotelBooking.new(hotel_booking_params)
     @hotel_booking.trip = @trip
     @hotel_booking.trip.user = current_user
-    if @hotel_booking.save
+    if @hotel_booking.save!
       redirect_to trip_path(@trip), notice: 'New hotel Booking was created successfully!'
     else
       render :new
