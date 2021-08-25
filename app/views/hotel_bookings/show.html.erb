@@ -1,0 +1,11 @@
+<p>The Hotel: <%= link_to @hotel_booking.trip.destination, trip_path(@hotel_booking.trip) %></p>
+<p><%= @hotel_booking.trip %></p>
+<p><%= @hotel_booking.hotel.name %></p>
+<p><%= @hotel_booking.hotel.address %></p>
+<p><%= @hotel_booking.hotel.description %></p>
+<p><%= @hotel_booking.hotel.price %></p>
+<p><%= @hotel_booking.hotel.price_class %></p>
+
+<p><%= @hotel_booking.date_coming %></p>
+<p><%= @hotel_booking.date_leaving %></p>
+<p><%= @hotel_booking.status %></p>

@@ -4,7 +4,7 @@ h1 {
   font-family: 'Cambo', serif;
   font-size: 48px;
   font-weight: bold;
-  color: black;
+  color: white;
 }
 
 h2 {
@@ -55,6 +55,7 @@ p {
   padding-right: 150px;
   padding-top: 100px;
   padding-bottom: 20px;
+  height: 60%;
   background-image: asset-url('background.png');
   background-size: cover;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);

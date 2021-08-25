@@ -13,9 +13,9 @@ class ActivityBookingsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @activity_booking = ActivityBooking.new(activity_booking_params)
     @activity_booking.trip = @trip
-    @activity_booking.trip.user = current_user
+    # @activity_booking.trip.user = current_user
 
-    if @activity_booking.save
+    if @activity_booking.save!
       redirect_to trip_path(@trip), notice: 'New activity Booking was created successfully!'
     else
       render :new
@@ -31,7 +31,13 @@ class ActivityBookingsController < ApplicationController
   def update
     @activity_bookings = ActivityBooking.find(params[:id])
     @activity_bookings.update(activity_booking_params)
-    redirect_to activity_bookings_path
+    redirect_to trip_path(@trip), notice: 'Activity has been edited successfully!'
+  end
+
+  def edit
+    @activity_booking = ActivityBooking.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @activity_booking.trip = @trip
   end
 
   private
