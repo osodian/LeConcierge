@@ -1,10 +1,11 @@
-<h1> <%= activity.name  %></h1>
+<div>
+  <%=link_to activity.name, trip_activity_booking_path(@trip, activity), class: "btn btn-hotel_show", id: "button-hotel_show" %>
+</div>
+<br>
 <div>
   <i class="fas fa-map-marker"></i>
   <p> <%= activity.address %></p>
 </div>
-<p> <%= activity.category %></p>
-<div>
   <i class="fas fa-info-circle"></i>
-  <p> <%= activity.description %></p>
-</div>
+  <p> <%= activity.category %></p>
+<div>
