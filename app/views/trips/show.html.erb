@@ -120,8 +120,7 @@
     </div>
   <% end %>
 
-
-  <% @trip.activity_bookings.each do |activity|%>
+  <% @activity_bookings.each do |activity|%>
     <div class="day-program">
       <div class="day">
         <h4><%= activity.booking_date.strftime("%b %d, %Y") %></h4>
@@ -169,6 +168,7 @@
       </div>
     </div>
   <% end %>
+
 
 <p><%= @trip.total_price %></p>
 

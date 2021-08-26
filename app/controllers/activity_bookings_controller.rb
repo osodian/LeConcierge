@@ -1,7 +1,15 @@
 class ActivityBookingsController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
-    @activities = Activity.all
+    # @activities = Activity.all
+    if @trip.destination.present?
+      @activities = Activity.where("city ILIKE ?", "%#{@trip.destination}%")
+      # @activities = Activity.where("category ILIKE ?", "restaurant")
+
+      # "%#{@activity.category}%"
+    # else
+    #   @activities = Activity.all
+    end
   end
 
   def show

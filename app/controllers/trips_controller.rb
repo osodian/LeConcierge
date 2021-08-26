@@ -38,11 +38,18 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @activity_bookings = @trip.activity_bookings.sort_by { |trip|[trip.booking_date] }
+    # @trip.activity_bookings.booking_dates.sort
+    # @trip.activity_bookings.sort_by { |trip| [trip.booking_date] }
+    # sorted_date = @trip.activity_bookings
+    # sorted = @trip.activity_bookings.booking_date.sort
+    # sorted.reverse! if direction == "DESC"
+
     count_price = 0
     final_price = 0
     @trip.activities.each do |activity|
       if activity.price.nil?
-        puts "hey"
+        puts "No fixed price for an activity"
       else
         count_price += 1
         final_price += activity.price

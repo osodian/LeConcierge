@@ -77,12 +77,12 @@ museum_two.photo.attach(io: File.open(Rails.root.join('app/assets/images/activit
 # end
 
 puts 'Browse through our hotels ...'
-totem_attrs = { name: 'Totem', address: 'C. de Hermosilla, 23, 28001 Madrid, Spain', description: 'Hotel with gym in the center of Madrid. Design and avant-garde with the best service. Enjoy the best prices and exclusive offers on the hotels website', price: 153, price_class: 2 }
+totem_attrs = { city: 'Madrid', name: 'Totem', address: 'C. de Hermosilla, 23, 28001 Madrid, Spain', description: 'Hotel with gym in the center of Madrid. Design and avant-garde with the best service. Enjoy the best prices and exclusive offers on the hotels website', price: 153, price_class: 2 }
 totem = Hotel.create!(totem_attrs)
   puts "Created #{totem.name}"
 totem.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/totem.jpg')),
                   filename: 'totem.jpg')
-four_attrs = { name: 'Four Seasons', address: 'C. de Sevilla, 3, 28014 Madrid, Spain', description: 'Centrally Located In The Heart Of Madrid. Bringing Exciting Restaurants, Bars & An Unmatched Spa Experience. Book Today. 39 Luxurious Suites. Largest Spa In Madrid. 200 Accommodations. Unmatched Spa Experience. Exciting New Restaurants.', price: 770, price_class: 4 }
+four_attrs = { city: 'Madrid', name: 'Four Seasons', address: 'C. de Sevilla, 3, 28014 Madrid, Spain', description: 'Centrally Located In The Heart Of Madrid. Bringing Exciting Restaurants, Bars & An Unmatched Spa Experience. Book Today. 39 Luxurious Suites. Largest Spa In Madrid. 200 Accommodations. Unmatched Spa Experience. Exciting New Restaurants.', price: 770, price_class: 4 }
 four = Hotel.create!(four_attrs)
   puts "Created #{four.name}"
 four.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/four.jpg')),
