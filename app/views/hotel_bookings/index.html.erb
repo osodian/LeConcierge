@@ -31,12 +31,14 @@
         </div>
         <div class="card-body_activity_show">
           <span class="tag_activity_show tag-teal_activity_show"><%= link_to 'Add this Activity to the Trip', new_trip_hotel_booking_path(@trip, hotel_id: hotel.id) %></span>
+          <br>
           <h4><%= hotel.name %></h4>
           <p><%= hotel.description %></p>
           <div class="user_activity_show">
             <div class="user-info_activity_show">
-              <h5>$<%= hotel.price %> per Night</h5>
               <h5>Price Class: <%= hotel.price_class %>/4</h5>
+              <br>
+              <h5>$<%= hotel.price %> per Night</h5>
               <small><%= hotel.address %></small>
             </div>
           </div>
@@ -47,4 +49,3 @@
 <% end %>
 
 <%= render 'layouts/footer' %>
-

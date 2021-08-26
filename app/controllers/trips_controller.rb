@@ -4,16 +4,18 @@ class TripsController < ApplicationController
   def index
     # @trips = policy_scope(Trip)
     @trips = Trip.all
+
     # @trips = policy_scope(Trip).order(created_at: :desc)
     @markers = @trips.geocoded.map do |trip|
       {
         lat: trip.latitude,
         lng: trip.longitude,
         info_window: render_to_string(partial: "info_window_trip", locals: {
-        trip: trip }),
-        image_url: helpers.asset_url('icons/flag.png')
-      }
-    end
+          trip: trip }),
+          image_url: helpers.asset_url('icons/flag.png')
+        }
+      end
+      @trips = @trips.sort_by { |trip|[trip.date_coming] }
   end
 
     # if params[:query].present?
@@ -92,11 +94,23 @@ class TripsController < ApplicationController
     end
   end
 
+  # def destroy
+  #   @trips = Trip.find(params[:id])
+  #   @trips.destroy
+  #   redirect_to trips_path
+  # end
   def destroy
-    @trips = Trip.find(params[:id])
-    @trips.destroy
+    @trip = Trip.find(params[:id])
+    @trip.destroy
     redirect_to trips_path
   end
+
+  def update
+    @trip = Trip.find(params[:id])
+    @trip.update(trip_params)
+    redirect_to trips_path
+  end
+
 
   private
 

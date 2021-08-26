@@ -24,16 +24,19 @@
     <div class="container_activity_show">
       <div class="card_activity_show">
         <div class="card-header_activity_show">
-          <%= image_tag activity.photo %>
+          <%= image_tag activity.photo%>
           <%# , height: 500, width: 700, crop: :fill %>
         </div>
         <div class="card-body_activity_show">
           <span class="tag_activity_show tag-teal_activity_show"><%= link_to 'Add this Activity to the Trip', new_trip_activity_booking_path(@trip, activity_id: activity.id) %></span>
+          <br>
           <h4><%= activity.name %></h4>
-          <p><%= activity.description %></p>
+          <h5><%= activity.category.capitalize %></h5>
+
+          <p><%#= activity.description %></p>
           <div class="user_activity_show">
             <div class="user-info_activity_show">
-              <h5><%= activity.category %></h5>
+              <h5><%#= activity.category %></h5>
               <h5>Price Class: <%= activity.price_class %>/4</h5>
               <small><%= activity.address %></small>
             </div>
