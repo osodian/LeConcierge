@@ -1,3 +1,12 @@
-<h1> <%= hotel.name  %></h1>
-<p> <%= hotel.address %></p>
-<p> <%= hotel.description %></p>
+<div>
+  <%=link_to hotel.name, trip_hotel_booking_path(@trip, hotel), class: "btn btn-hotel_show", id:"button-hotel_show"%>
+</div>
+<br>
+<div>
+  <i class="fas fa-map-marker"></i>
+  <p class="address"> <%= hotel.address %></p>
+</div>
+<div>
+  <i class="fas fa-info-circle"></i>
+  <p class="description"> <%= hotel.description %></p>
+</div>

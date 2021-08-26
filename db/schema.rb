@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_08_25_123156) do
+ActiveRecord::Schema.define(version: 2021_08_25_133120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,11 +39,10 @@ ActiveRecord::Schema.define(version: 2021_08_25_123156) do
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "city"
     t.text "description"
     t.string "category"
     t.integer "price"
-    t.integer "price_class"
+    t.string "price_class"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
@@ -78,10 +76,9 @@ ActiveRecord::Schema.define(version: 2021_08_25_123156) do
   create_table "hotels", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "city"
     t.integer "price"
     t.text "description"
-    t.integer "price_class"
+    t.string "price_class"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
