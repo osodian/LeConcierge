@@ -19,9 +19,11 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <%= render 'layouts/navbar' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>

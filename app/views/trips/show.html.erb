@@ -1,44 +1,100 @@
-
-<%= render 'layouts/navbar' %>
-
 <div class="show">
     <div id="left">
       <h3 id="filters">Notebook</h3>
-      <div class="row mt-5">
-  <div class="col-3">
-    <%# <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-overview-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Overview</a>
-      <a class="nav-link" id="v-pills-date-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><%= @trip.date_coming.strftime("%b %d, %Y") %></a>
-      <%# <a class="nav-link" id="v-pills-date-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><%= @trip.date_leaving.strftime("%b %d, %Y") %></a>
-    <%# </div> %>
-  </div>
-  </div>
+      <div class="mt-5">
+        <div>
+          <div class="nav flex-column">
+            <div class="nav-link completed">Overview</div>
+            <% dates_array = (@trip.date_coming.strftime("%b %d, %Y").to_date..@trip.date_leaving.strftime("%b %d, %Y").to_date).map {|d| d } %>
+              <% dates_array.each do |date| %>
+                <div class="nav-link"><%= date %></div>
+              <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-  <div id="right">
-
+    <div id="right">
     <div id="destination">
       <h3>Your trip to <%= @trip.destination %></h3>
-      <br>
-      <% if @trip.hotel_bookings.empty? %>
-        <h3><%= link_to 'Do you want to book a hotel?', trip_hotel_bookings_path(@trip) %></h3>
+    </div>
+    <% if @trip.hotel_bookings.empty? %>
+    <div class="card" id="default-card">
+       <div class="row">
+          <div class="col-lg-2" id="default-activity-icon">
+            <%= link_to trip_hotel_bookings_path(@trip) do %>
+              <i id="add-icon" class="material-icons" style="font-size:60px;">add</i>
+            <% end %>
+          </div>
+          <div class="col-lg-8" id="activity-infos">
+              <p id="default-card-content">Let's get started!</p>
+              <h3 id="default-card-content">Add an Accommodation</h3>
+          </div>
+          <div class="col-md-2" id="default-edit-icon">
+            <i class="material-icons" style="font-size:32px;">hotel</i>
+          </div>
+        </div>
+      </div>
+      <div class="card" id="default-card">
+       <div class="row">
+          <div class="col-lg-2" id="default-activity-icon">
+            <%= link_to trip_activity_bookings_path(@trip) do %>
+              <i id="add-icon" class="material-icons" style="font-size:60px;">add</i>
+            <% end %>
+          </div>
+          <div class="col-lg-8" id="activity-infos">
+              <p id="default-card-content">Let's get started!</p>
+              <h3 id="default-card-content">Add an Activity</h3>
+          </div>
+          <div class="col-md-2" id="default-edit-icon">
+            <i class="material-icons" style="font-size:32px;">celebration</i>
+          </div>
+        </div>
+      </div>
       <% else %>
-        <% @trip.hotel_bookings.each do |hotel|%>
-          <h3>Costs per night: $<%= hotel.hotel.price %></h3>
-          <h3>Total Costs Hotel (shows 2 nights): $<%= hotel.hotel.price + hotel.hotel.price %></h3>
+      <div id="hotel">
+      <% @trip.hotel_bookings.each do |hotel|%>
+          <h5>Costs per night: $<%= hotel.hotel.price %></h5>
+          <h5>Total Costs Hotel: $<%= hotel.hotel.price + hotel.hotel.price %></h5>
         <% end %>
       <% end %>
-      <br>
-
-      <% if @trip.activity_bookings.empty? %>
-        <h3><%= link_to 'Do you want to book a restaurant, sightseeing, club? Or many other things!', trip_activity_bookings_path(@trip) %></h3>
+      </div>
+    <% if @trip.activity_bookings.empty? %>
+    <div class="card" id="default-card">
+       <div class="row">
+          <div class="col-lg-2" id="default-activity-icon">
+            <%= link_to trip_activity_bookings_path(@trip) do %>
+              <i id="add-icon" class="material-icons" style="font-size:60px;">add</i>
+            <% end %>
+          </div>
+          <div class="col-lg-8" id="activity-infos">
+              <p id="default-card-content">Let's get started!</p>
+              <h3 id="default-card-content">Add an Activity</h3>
+          </div>
+          <div class="col-md-2" id="default-edit-icon">
+            <i class="material-icons" style="font-size:32px;">celebration</i>
+          </div>
+        </div>
+      </div>
       <% else %>
-        <h3>Fixed Prices for Activities: $<%= @trip.total_price %></h3>
-        <h3><%= link_to 'Add another activity?', trip_activity_bookings_path(@trip) %></h3>
+      <h5 id="activities">Fixed Prices for Activities: $<%= @trip.total_price %></h5>
+      <h5 id="activities">Total Price for the Trip: $<%= @trip.total_price %></h5>
+      <div class="card" id="default-card">
+       <div class="row">
+          <div class="col-lg-2" id="default-activity-icon">
+            <%= link_to trip_activity_bookings_path(@trip) do %>
+              <i id="add-icon" class="material-icons" style="font-size:60px;">add</i>
+            <% end %>
+          </div>
+          <div class="col-lg-8" id="activity-infos">
+              <p id="default-card-content">Want to add more?</p>
+              <h3 id="default-card-content">Add more Activities</h3>
+          </div>
+          <div class="col-md-2" id="default-edit-icon">
+            <i class="material-icons" style="font-size:32px;">celebration</i>
+          </div>
+        </div>
+      </div>
       <% end %>
-
-    </div>
 
   <% @trip.hotel_bookings.each do |hotel|%>
     <div class="day-program">
@@ -93,15 +149,6 @@
       </div>
     </div>
   <% end %>
-     <%# activity.address
-    <p><%= activity.description %>
-
-    <%# <% if activity.price.nil?  %>
-      <%# <p><%= activity.price_class %>
-    <%# <% else %>
-      <%# <p><%= activity.price %>
-      <%# <p><%= activity.price_class %>
-    <%# <% end %>
 
   <% @trip.hotel_bookings.each do |hotel|%>
     <div class="day-program">
@@ -123,15 +170,7 @@
     </div>
   <% end %>
 
-
-
-
-
 <p><%= @trip.total_price %></p>
-
-
-
-
 
 <p><%= @trip.type_transportation %></p>
 <p><%= @trip.people %></p>
@@ -179,5 +218,3 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
-<%= render 'layouts/footer' %>
