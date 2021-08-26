@@ -7,21 +7,8 @@
   <%# else %>
     <%# <h4>"No pictures"</h4> %>
   <%# end %>
-  <p><%#= hotel.name %></p>
-  <p><%#= hotel.address %></p>
-  <p><%#= hotel.description %></p>
-  <%# if hotel.price.nil? %>
-    <p><%#= hotel.price_class %></p>
-  <%# else %>
-    <p><%#= hotel.price %></p>
-    <p><%#= hotel.price_class %></p>
-  <%# end %>
-  <%#= link_to 'Add this Hotel to the Trip', new_trip_hotel_booking_path(@trip, hotel_id: hotel.id) %>
-  <br>
-<%# end %>
 
-
-
+<div class="activity-index-container">
 <% @hotels.each do |hotel|%>
   <div class="body_activity_show">
     <div class="container_activity_show">
@@ -30,7 +17,11 @@
           <%= image_tag hotel.photo %>
         </div>
         <div class="card-body_activity_show">
-          <span class="tag_activity_show tag-teal_activity_show"><%= link_to 'Add this Activity to the Trip', new_trip_hotel_booking_path(@trip, hotel_id: hotel.id) %></span>
+          <span class="tag_activity_show tag-teal_activity_show align-center">
+            <%= link_to new_trip_hotel_booking_path(@trip, hotel_id: hotel.id) do %>
+              <button class="btn btn-primary" id="button-home-3">Add this hotel</button>
+            <% end %>
+          </span>
           <br>
           <h4><%= hotel.name %></h4>
           <p><%= hotel.description %></p>
@@ -47,5 +38,4 @@
     </div>
   </div>
 <% end %>
-
-<%= render 'layouts/footer' %>
+</div>
