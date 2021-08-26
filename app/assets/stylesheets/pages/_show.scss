@@ -7,8 +7,8 @@
 #left {
   min-width: 300px;
   text-align: left;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding-right: 30px;
+  padding-left: 30px;
   padding-top: 50px;
   border-right: 1px solid black;
 }
@@ -33,6 +33,7 @@
   margin-bottom: 50px;
   margin-left: 100px;
 }
+
 .day {
   display: flex;
   justify-content: space-between;
@@ -47,6 +48,42 @@
   padding:20px;
   justify-content: space-between;
   background-color: black;
+}
+
+#default-card {
+  margin-left: 100px;
+  background-color: rgb(230, 230, 230);
+}
+
+#default-card-content {
+  color: #BF9D51;
+}
+
+#default-activity-icon {
+  border-right: 1px solid white;
+  color: #BF9D51;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#add-icon {
+  color: #BF9D51;
+}
+
+#default-activity-infos {
+  border-right: 1px solid white;
+  color: #BF9D51;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#default-edit-icon {
+  color: #BF9D51;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #activity-icon {
@@ -74,14 +111,12 @@
   justify-content: center;
 }
 
-.active {
-  color: black !important;
-  letter-spacing: 3px;
-  font-weight: bold;
-  border-radius: 0 !important;
-  background-color: white !important;
-  border: 3px solid black;
-  text-align: center;
+#hotel {
+  padding-left: 100px;
+}
+
+#activities {
+  padding-left: 100px;
 }
 
 #v-pills-overview-tab {
