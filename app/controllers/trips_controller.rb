@@ -59,6 +59,18 @@ class TripsController < ApplicationController
     end
     @trip.total_price = final_price
 
+
+    dates_array = (@trip.date_coming.strftime("%b %d, %Y").to_date..@trip.date_leaving.strftime("%b %d, %Y").to_date).map {|d| d }
+    # dates_index = dates_array.index
+    @trip.hotels.each do |hotel|
+      if hotel.price.nil?
+        puts "No Price for the Hotel yet"
+      else
+        final_hotel = hotel.price * dates_array.count
+      end
+      @trip.total_price = final_price + final_hotel
+    end
+
     markers_hotels = @trip.hotels.geocoded.map do |hotel|
       {
         lat: hotel.latitude,
