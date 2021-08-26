@@ -10,7 +10,8 @@ class TripsController < ApplicationController
         lat: trip.latitude,
         lng: trip.longitude,
         info_window: render_to_string(partial: "info_window_trip", locals: {
-        trip: trip })
+        trip: trip }),
+        image_url: helpers.asset_url('icons/flag.png')
       }
     end
   end
@@ -54,7 +55,8 @@ class TripsController < ApplicationController
         lat: hotel.latitude,
         lng: hotel.longitude,
         info_window: render_to_string(partial: "info_window_hotel", locals: {
-        hotel: hotel })
+        hotel: hotel }),
+        image_url: helpers.asset_url('icons/door.png')
       }
     end
     markers_activities = @trip.activities.geocoded.map do |activity|
@@ -62,7 +64,8 @@ class TripsController < ApplicationController
         lat: activity.latitude,
         lng: activity.longitude,
         info_window: render_to_string(partial: "info_window_activity", locals: {
-        activity: activity })
+        activity: activity }),
+        image_url: helpers.asset_url('icons/confiusing_bell.png')
       }
     end
     @markers = markers_hotels.concat markers_activities
