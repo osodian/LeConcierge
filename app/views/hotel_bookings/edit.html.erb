@@ -3,4 +3,5 @@
   <%= f.input :date_leaving %>
   <%= f.association :hotel %>
   <%= f.button :submit %>
+  <%= link_to "Delete Reservation" , hotel_booking_path(), method: :delete, data: { confirm: "Are you sure?" }%>
 <%end%>

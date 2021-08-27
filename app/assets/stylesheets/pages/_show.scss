@@ -35,7 +35,7 @@
 }
 
 .day-program {
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   margin-left: 40px;
 }
 
@@ -58,6 +58,19 @@
 #default-card {
   margin-left: 40px;
   background-color: rgb(230, 230, 230);
+}
+#date_card {
+  margin-left: 40px;
+  background-color: rgb(230, 230, 230);
+  margin-bottom: 10px;
+}
+
+#date_card_two{
+  margin-bottom: 10px;
+
+}
+#hotel_card {
+  margin-bottom: 5px;
 }
 
 #default-card-content {
@@ -138,4 +151,8 @@
 #madrid {
   background-image: asset-url('madrid_trip_show.jpg');
   background-size: cover;
+}
+
+#unnecessary_center{
+  text-align: center;
 }
