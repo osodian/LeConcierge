@@ -1,36 +1,39 @@
 <div class="show">
-    <div id="left">
-      <h3 id="filters">Notebook</h3>
-      <div class="mt-5">
-        <div>
-          <div class="nav flex-column">
-            <div class="nav-link completed">Overview</div>
+  <div id="left">
+    <h3 id="filters">Notebook</h3>
+    <div class="mt-5">
+      <div>
+        <div class="nav flex-column">
+          <div class="nav-link completed">
+            Overview
+          </div>
             <% dates_array = (@trip.date_coming.strftime("%b %d, %Y").to_date..@trip.date_leaving.strftime("%b %d, %Y").to_date).map {|d| d } %>
               <% dates_array.each do |date| %>
-                <div class="nav-link"><%= date %></div>
+                <div class="nav-link">
+                  <%= date %>
+                </div>
               <% end %>
-          </div>
         </div>
       </div>
     </div>
-    <div id="middle">
-      <div id="destination">
-        <h2 class="text-center">Your trip to <%= @trip.destination %></h2>
-      </div>
-      <div class="information d-flex justify-content-between pl-5 py-3">
+  </div>
+  <div id="middle">
+    <div id="destination">
+      <h2 class="text-center">Your trip to <%= @trip.destination %></h2>
+    </div>
+    <div class="information d-flex justify-content-between pl-5 py-3">
       <div id="people-number d-flex">
         <i class="material-icons" style="font-size:32px;">group</i>
         <h5><%= @trip.people %></h5>
       </div>
       <div id="price d-flex">
-        <%# <i class="material-icons" style="font-size:32px;">euro_symbol</i> %>
         <h5 style="font-size:32px;">Total: $ <%= @trip.total_price %></h5>
       </div>
       <div id="transport d-flex">
         <i class="material-icons" style="font-size:32px;">hail</i>
         <h5><%= @trip.type_transportation %></h5>
       </div>
-      </div>
+    </div>
 
       <% if @trip.hotel_bookings.empty? %>
       <div class="card" id="default-card">
@@ -46,22 +49,6 @@
             </div>
           <div class="col-md-2" id="default-edit-icon">
             <i class="material-icons" style="font-size:32px;">hotel</i>
-          </div>
-        </div>
-      </div>
-      <div class="card" id="default-card">
-       <div class="row">
-          <div class="col-lg-2" id="default-activity-icon">
-            <%= link_to trip_activity_bookings_path(@trip) do %>
-              <i id="add-icon" class="material-icons" style="font-size:60px;">add</i>
-            <% end %>
-          </div>
-            <div class="col-lg-8" id="activity-infos">
-              <p id="default-card-content">Let's get started!</p>
-              <h3 id="default-card-content">Add an Activity</h3>
-          </div>
-          <div class="col-md-2" id="default-edit-icon">
-            <i class="material-icons" style="font-size:32px;">celebration</i>
           </div>
         </div>
       </div>
@@ -85,38 +72,8 @@
                 <i class="material-icons" style="font-size:32px;">celebration</i>
               </div>
         </div>
-
-
-        <% dates_array = (@trip.date_coming.strftime("%b %d, %Y").to_date..@trip.date_leaving.strftime("%b %d, %Y").to_date).map {|d| d } %>
-          <% dates_array.each do |date| %>
-          <div class="day-program">
-          <div class="day">
-            <h4><%= date.strftime("%b %d, %Y") %></h4>
-          </div>
-            <div class="card" id="default-card">
-            <div class="row">
-                <div class="col-lg-2" id="default-activity-icon">
-                  <%= link_to trip_activity_bookings_path(@trip) do %>
-                    <i id="add-icon" class="material-icons" style="font-size:60px;">add</i>
-                  <% end %>
-                </div>
-                <div class="col-lg-8" id="activity-infos">
-                    <p id="default-card-content">Let's get started!</p>
-                    <h3 id="default-card-content">Add an Activity</h3>
-                </div>
-                <div class="col-md-2" id="default-edit-icon">
-                  <i class="material-icons" style="font-size:32px;">celebration</i>
-                </div>
-              </div>
-            </div>
-            </div>
-
-            <%# <div class="nav-link">= date</div> %>
-          <% end %>
-
-      </div>
-      <% else %>
-      <div>
+        </div>
+        <% else %>
         <div class="card" id="default-card">
           <div class="row">
             <div class="col-lg-2" id="default-activity-icon">
@@ -127,15 +84,14 @@
             <div class="col-lg-8" id="activity-infos">
               <p id="default-card-content">Want to add more?</p>
               <h3 id="default-card-content">Add more Activities</h3>
-          </div>
-          <div class="col-md-2" id="default-edit-icon">
-            <i class="material-icons" style="font-size:32px;">celebration</i>
+            </div>
+            <div class="col-md-2" id="default-edit-icon">
+              <i class="material-icons" style="font-size:32px;">celebration</i>
+            </div>
           </div>
         </div>
-      </div>
-      <% end %>
-
-      <% @trip.hotel_bookings.each do |hotel|%>
+        <% end %>
+        <% @trip.hotel_bookings.each do |hotel|%>
         <div class="day-program">
           <div class="d-flex justify-content-between">
             <h4>Check in: <%= hotel.date_coming.strftime("%b %d, %Y") %></h4>
@@ -144,7 +100,7 @@
           <div class="card">
             <div class="row">
               <div class="col-lg-2" id="activity-icon">
-                <i class="material-icons" style="font-size:60px;">local_bar</i>
+                <i class="fas fa-hotel" style="font-size:40px;"></i>
               </div>
               <div class="col-lg-8" id="activity-infos">
                 <%= link_to trip_hotel_booking_path(@trip, hotel) do %>
@@ -169,9 +125,22 @@
           </div>
         <div class="card">
           <div class="row">
-            <div class="col-lg-2" id="activity-icon">
-              <i class="material-icons" style="font-size:60px;">local_bar</i>
-            </div>
+
+            <% if activity.activity.category.include?('restaurant') %>
+              <div class="col-lg-2" id="activity-icon">
+                <i class="fas fa-concierge-bell" style="font-size:50px;"></i>
+              </div>
+            <% elsif activity.activity.category.include?('bar') %>
+              <div class="col-lg-2" id="activity-icon">
+                <i class="material-icons" style="font-size:50px;">local_bar</i>
+              </div>
+            <% elsif activity.activity.category.include?('museum') %>
+              <div class="col-lg-2" id="activity-icon">
+                <i class="fas fa-landmark" style="font-size:50px;"></i>
+              </div>
+            <% end %>
+
+
             <div class="col-lg-8" id="activity-infos">
                 <%= link_to trip_activity_booking_path(@trip, activity) do %>
                 <p id="card-content"><%= activity.activity.category %></p>
@@ -194,24 +163,26 @@
         <div class="card">
           <div class="row">
             <div class="col-lg-2" id="activity-icon">
-              <i class="material-icons" style="font-size:60px;">local_bar</i>
+              <i class="fas fa-hotel" style="font-size:40px;"></i>
             </div>
-          <div class="col-lg-8" id="activity-infos">
+            <div class="col-lg-8" id="activity-infos">
               <p id="card-content"><%= hotel.hotel.address %></p>
               <h3 id="card-content"><%= hotel.hotel.name %></h3>
-          </div>
-          <div class="col-md-2" id="edit-icon">
-            <i class="material-icons" style="font-size:32px;">edit</i>
+            </div>
+            <div class="col-md-2" id="edit-icon">
+              <i class="material-icons" style="font-size:32px;">edit</i>
+            </div>
           </div>
         </div>
       </div>
-    <% end %>
+      <% end %>
     </div>
-    </div>
-  </div>
+  <% if @trip.hotel_bookings.empty? && @trip.activity_bookings.empty? %>
+    <% else %>
     <div class="right" id="map"
       style="width: 100%; height: 750px;"
       data-markers="<%= @markers.to_json%>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <% end %>
 </div>
