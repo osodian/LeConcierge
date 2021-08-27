@@ -34,7 +34,6 @@
         <h5><%= @trip.type_transportation %></h5>
       </div>
     </div>
-
       <% if @trip.hotel_bookings.empty? %>
       <div class="card" id="default-card">
        <div class="row">
@@ -54,8 +53,6 @@
       </div>
       <% else %>
         <% end %>
-
-
       <% if @trip.activity_bookings.empty? %>
           <div class="card" id="default-card">
           <div class="row">
@@ -82,7 +79,7 @@
               <% end %>
             </div>
             <div class="col-lg-8" id="activity-infos">
-              <p id="default-card-content">Want to add more?</p>
+              <p id="default-card-content"></p>
               <h3 id="default-card-content">Add more Activities</h3>
             </div>
             <div class="col-md-2" id="default-edit-icon">
@@ -96,7 +93,7 @@
         <% dates_array_two.each do |date_two| %>
         <%# raise %>
           <%#= date_two.strftime("%A, %b %d") %>
-          <div class="card" id="default-card">
+          <div class="card" id="date_card">
             <div class="row">
               <div class="col-lg-2" id="default-activity-icon">
                 <%#= link_to trip_activity_bookings_path(@trip) do %>
@@ -112,112 +109,109 @@
                 </div>
               </div>
             </div>
-          <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <% @trip.hotel_bookings.each do |hotel|%>
-        <div class="day-program">
-          <div class="d-flex justify-content-between">
-            <h4>Check in: <%= hotel.date_coming.strftime("%A, %b %d") %></h4>
-            <%= link_to "Delete #{hotel.hotel.name} Reservation" , hotel_booking_path(hotel), method: :delete, data: { confirm: "Are you sure?" }%>
-          </div>
-          <div class="card">
-            <div class="row">
-              <div class="col-lg-2" id="activity-icon">
-                <i class="fas fa-hotel" style="font-size:40px;"></i>
-              </div>
-              <div class="col-lg-8" id="activity-infos">
-                <%= link_to trip_hotel_booking_path(@trip, hotel) do %>
-                  <p id="card-content"><%= hotel.hotel.address %></p>
-                  <h3 id="card-content"><%= hotel.hotel.name %></h3>
-                <% end %>
-              </div>
-              <div class="col-md-2" id="edit-icon">
-                <%= link_to edit_trip_hotel_booking_path(@trip, hotel) do %>
-                  <i class="material-icons" id="edit-icon" style="font-size:32px;">edit</i>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        <% @activity_bookings.each do |activity|%>
-        <div class="day-program">
-          <div class="day">
-            <h4><%= activity.booking_date.strftime("%A, %b %d") %></h4>
-            <%= link_to "Delete #{activity.activity.name} Reservation", activity_booking_path(activity), method: :delete, data: { confirm: "Are you sure?" }%>
-          </div>
-        <div class="card">
-          <div class="row">
-
-            <% if activity.activity.category.include?('restaurant') %>
-              <div class="col-lg-2" id="activity-icon">
-                <i class="fas fa-concierge-bell" style="font-size:50px;"></i>
-              </div>
-            <% elsif activity.activity.category.include?('bar') %>
-              <div class="col-lg-2" id="activity-icon">
-                <i class="material-icons" style="font-size:50px;">local_bar</i>
-              </div>
-            <% elsif activity.activity.category.include?('museum') %>
-              <div class="col-lg-2" id="activity-icon">
-                <i class="fas fa-landmark" style="font-size:50px;"></i>
-              </div>
-            <% end %>
-
-
-            <div class="col-lg-8" id="activity-infos">
-                <%= link_to trip_activity_booking_path(@trip, activity) do %>
-                <p id="card-content"><%= activity.activity.category %></p>
-                <h3 id="card-content"><%= activity.activity.name %></h3>
-                <% end %>
-            </div>
-            <div class="col-md-2" id="edit-icon">
-              <%= link_to edit_trip_activity_booking_path(@trip, activity) do %>
-                <i class="material-icons" id="edit-icon" style="font-size:32px;">edit</i>
+            <%# raise %>
+            <% if @trip.hotel_bookings.present? && @trip.hotel_bookings.first.date_coming.strftime("%A, %b %d") == date_two.strftime("%A, %b %d") %>
+              <% @trip.hotel_bookings.each do |hotel|%>
+                <div class="day-program">
+                  <div class="d-flex justify-content-between">
+                    <%# <h4>Check in: = hotel.date_coming.strftime("%A, %b %d")</h4> %>
+                  </div>
+                  <div class="card" id="hotel_card">
+                    <div class="row">
+                      <div class="col-lg-2" id="activity-icon">
+                        <i class="fas fa-hotel" style="font-size:40px;"></i>
+                      </div>
+                      <div class="col-lg-8" id="activity-infos">
+                        <%= link_to trip_hotel_booking_path(@trip, hotel) do %>
+                          <p id="card-content"><%= hotel.hotel.address %></p>
+                          <h3 id="card-content">Check in at: <%= hotel.hotel.name %></h3>
+                        <% end %>
+                      </div>
+                      <div class="col-md-2" id="edit-icon">
+                        <%= link_to edit_trip_hotel_booking_path(@trip, hotel) do %>
+                          <i class="material-icons" id="edit-icon" style="font-size:32px;">edit</i>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
-
-      <% @trip.hotel_bookings.each do |hotel|%>
-      <div class="day-program">
-        <h4>Check out: <%= hotel.date_leaving.strftime("%A, %b %d")%></h4>
-        <div class="card">
-          <div class="row">
-            <div class="col-lg-2" id="activity-icon">
-              <i class="fas fa-hotel" style="font-size:40px;"></i>
-            </div>
-            <div class="col-lg-8" id="activity-infos">
-              <p id="card-content"><%= hotel.hotel.address %></p>
-              <h3 id="card-content"><%= hotel.hotel.name %></h3>
-            </div>
-            <div class="col-md-2" id="edit-icon">
-              <i class="material-icons" style="font-size:32px;">edit</i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
+            <% end %>
+            <% @trip.activity_bookings.each do |activity|%>
+              <% if activity.present? && activity.booking_date.strftime("%A, %b %d") == date_two.strftime("%A, %b %d")%>
+                <div class="day-program">
+                  <div class="day">
+                  </div>
+                  <div class="card" id="date_card_two">
+                    <div class="row">
+                      <% if activity.activity.category.include?('restaurant') %>
+                        <div class="col-lg-2" id="activity-icon">
+                          <i class="fas fa-concierge-bell" style="font-size:50px;"></i>
+                        </div>
+                      <% elsif activity.activity.category.include?('bar') %>
+                        <div class="col-lg-2" id="activity-icon">
+                          <i class="material-icons" style="font-size:50px;">local_bar</i>
+                        </div>
+                      <% elsif activity.activity.category.include?('museum') %>
+                        <div class="col-lg-2" id="activity-icon">
+                          <i class="fas fa-landmark" style="font-size:50px;"></i>
+                        </div>
+                      <% end %>
+                      <div class="col-lg-8" id="activity-infos">
+                          <%= link_to trip_activity_booking_path(@trip, activity) do %>
+                            <h6 id="card-content"><%= activity.booking_date.strftime("%b %e, %l:%M %p") %></h6>
+                            <h3 id="card-content"><%= activity.activity.name %></h3>
+                          <% end %>
+                      </div>
+                      <div class="col-md-2" id="edit-icon">
+                        <%= link_to edit_trip_activity_booking_path(@trip, activity) do %>
+                          <i class="material-icons" id="edit-icon" style="font-size:32px;">edit</i>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% elsif activity.present? == false%>
+              <div class="card" id="default-card">
+                <div class="row">
+                  <div class="col-lg-2" id="default-activity-icon">
+                <%#= link_to trip_activity_bookings_path(@trip) do %>
+                  <%# <i id="fas fa-calendar-day" style="font-size:40px;"></i> %>
+                <%# end %>
+                  </div>
+                  <div class="col-lg-8" id="activity-infos">
+                <%# <p id="default-card-content">Nothing added yet</p> %>
+                    <p id="default-card-content">No Activity added yet</p>
+                  </div>
+                  <div class="col-md-2" id="default-edit-icon">
+                  <%# <i class="material-icons" style="font-size:32px;">celebration</i> %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            <% end %>
+            <% if @trip.hotel_bookings.present? && @trip.hotel_bookings.first.date_leaving.strftime("%A, %b %d") == date_two.strftime("%A, %b %d") %>
+              <% @trip.hotel_bookings.each do |hotel|%>
+                <div class="day-program">
+                  <div class="card" id="date_card_two">
+                    <div class="row">
+                      <div class="col-lg-2" id="activity-icon">
+                        <i class="fas fa-hotel" style="font-size:40px;"></i>
+                      </div>
+                      <div class="col-lg-8" id="activity-infos">
+                        <p id="card-content"><%= hotel.hotel.address %></p>
+                        <h3 id="card-content">Check out at: <%= hotel.hotel.name %></h3>
+                      </div>
+                      <div class="col-md-2" id="edit-icon">
+                        <i class="material-icons" style="font-size:32px;">edit</i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+            <p id="unnecessary_center">___________________________________</p>
+          <% end %>
     </div>
   <% if @trip.hotel_bookings.empty? && @trip.activity_bookings.empty? %>
     <div class="right" id="madrid"></div>

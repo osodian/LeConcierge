@@ -15,4 +15,5 @@
 <div class="form-group text-center">
   <%= t.button :submit, class: "btn btn-primary mt-5", id: "button-home-1" %>
 </div>
+<%= link_to "Delete Reservation" , activity_booking_path(), method: :delete, data: { confirm: "Are you sure?" }%>
 <%end%>
