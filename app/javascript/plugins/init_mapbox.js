@@ -15,7 +15,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/dosenstecher69/cksu4qx2i1k1417qntb8qx135'
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
@@ -24,8 +24,8 @@ const initMapbox = () => {
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'contain';
-      element.style.width = '40px';
-      element.style.height = '40px';
+      element.style.width = '45px';
+      element.style.height = '45px';
       new mapboxgl.Marker(element)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
