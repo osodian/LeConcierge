@@ -54,21 +54,23 @@
       </div>
       <% else %>
         <% end %>
+
+
       <% if @trip.activity_bookings.empty? %>
-      <div class="card" id="default-card">
-       <div class="row">
-          <div class="col-lg-2" id="default-activity-icon">
-            <%= link_to trip_activity_bookings_path(@trip) do %>
-              <i id="add-icon" class="material-icons" style="font-size:60px;">add</i>
-            <% end %>
-          </div>
-          <div class="col-lg-8" id="activity-infos">
-              <p id="default-card-content">Let's get started!</p>
-              <h3 id="default-card-content">Add an Activity</h3>
-          </div>
-          <div class="col-md-2" id="default-edit-icon">
-            <i class="material-icons" style="font-size:32px;">celebration</i>
-          </div>
+          <div class="card" id="default-card">
+          <div class="row">
+              <div class="col-lg-2" id="default-activity-icon">
+                <%= link_to trip_activity_bookings_path(@trip) do %>
+                  <i id="add-icon" class="material-icons" style="font-size:60px;">add</i>
+                <% end %>
+              </div>
+              <div class="col-lg-8" id="activity-infos">
+                  <p id="default-card-content">Let's get started!</p>
+                  <h3 id="default-card-content">Add an Activity</h3>
+              </div>
+              <div class="col-md-2" id="default-edit-icon">
+                <i class="material-icons" style="font-size:32px;">celebration</i>
+              </div>
         </div>
         </div>
         <% else %>
@@ -98,7 +100,7 @@
           <div class="card">
             <div class="row">
               <div class="col-lg-2" id="activity-icon">
-                <i class="material-icons" style="font-size:60px;">local_bar</i>
+                <i class="fas fa-hotel" style="font-size:40px;"></i>
               </div>
               <div class="col-lg-8" id="activity-infos">
                 <%= link_to trip_hotel_booking_path(@trip, hotel) do %>
@@ -123,9 +125,22 @@
           </div>
         <div class="card">
           <div class="row">
-            <div class="col-lg-2" id="activity-icon">
-              <i class="material-icons" style="font-size:60px;">local_bar</i>
-            </div>
+
+            <% if activity.activity.category.include?('restaurant') %>
+              <div class="col-lg-2" id="activity-icon">
+                <i class="fas fa-concierge-bell" style="font-size:50px;"></i>
+              </div>
+            <% elsif activity.activity.category.include?('bar') %>
+              <div class="col-lg-2" id="activity-icon">
+                <i class="material-icons" style="font-size:50px;">local_bar</i>
+              </div>
+            <% elsif activity.activity.category.include?('museum') %>
+              <div class="col-lg-2" id="activity-icon">
+                <i class="fas fa-landmark" style="font-size:50px;"></i>
+              </div>
+            <% end %>
+
+
             <div class="col-lg-8" id="activity-infos">
                 <%= link_to trip_activity_booking_path(@trip, activity) do %>
                 <p id="card-content"><%= activity.activity.category %></p>
@@ -148,7 +163,7 @@
         <div class="card">
           <div class="row">
             <div class="col-lg-2" id="activity-icon">
-              <i class="material-icons" style="font-size:60px;">local_bar</i>
+              <i class="fas fa-hotel" style="font-size:40px;"></i>
             </div>
             <div class="col-lg-8" id="activity-infos">
               <p id="card-content"><%= hotel.hotel.address %></p>

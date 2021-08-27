@@ -49,24 +49,29 @@ class TripsController < ApplicationController
 
     count_price = 0
     final_price = 0
-    @trip.activities.each do |activity|
-      if activity.price.nil?
+    @trip.activity_bookings.each do |activity_booking|
+      if activity_booking.activity.price.nil?
         puts "No fixed price for an activity"
       else
         count_price += 1
-        final_price += activity.price
+        final_price += activity_booking.activity.price * activity_booking.people
       end
     end
     @trip.total_price = final_price
 
 
-    dates_array = (@trip.date_coming.strftime("%b %d, %Y").to_date..@trip.date_leaving.strftime("%b %d, %Y").to_date).map {|d| d }
+    @hotel_booking = @trip.hotel_bookings.first
+    # dates_array = (@trip.date_coming.strftime("%b %d, %Y").to_date..@trip.date_leaving.strftime("%b %d, %Y").to_date).map {|d| d }
+    unless @hotel_booking.nil?
+      dates_array = (@hotel_booking.date_coming.strftime("%b %d, %Y").to_date..@hotel_booking.date_leaving.strftime("%b %d, %Y").to_date).map {|d| d }
+    end
+
     # dates_index = dates_array.index
     @trip.hotels.each do |hotel|
       if hotel.price.nil?
         puts "No Price for the Hotel yet"
       else
-        final_hotel = hotel.price * dates_array.count
+        final_hotel = hotel.price * (dates_array.count - 1)
       end
       @trip.total_price = final_price + final_hotel
     end
