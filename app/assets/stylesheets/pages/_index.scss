@@ -2,7 +2,7 @@
 
 .activity-index-container {
   display: grid;
-  margin-top: 200px;
+  margin-top: 100px;
   grid-column-gap: 50px;
   grid-row-gap: 50px;
   grid-template-columns: 1fr 1fr 1fr;
@@ -13,7 +13,6 @@
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: #f7f8fc;
   font-family: "Roboto", sans-serif;
   color: #10182f;
 }
@@ -114,4 +113,27 @@
   display: flex;
   margin-top: 200px;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+#menu-bar {
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 150px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between !important;
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  cursor: pointer;
+}
+
+#all-tab {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+#outdoor-tab{
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 }

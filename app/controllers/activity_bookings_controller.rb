@@ -3,7 +3,9 @@ class ActivityBookingsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     # @activities = Activity.all
     if @trip.destination.present?
-      @activities = Activity.where("city ILIKE ?", "%#{@trip.destination}%")
+      @all_activities = Activity.where("city ILIKE ?", "%#{@trip.destination}%")
+      @restaurants = @all_activities.where("category ILIKE ?", "%restaurant%")
+      @museums = @all_activities.where(category: 'museum')
       # @activities = Activity.where("category ILIKE ?", "restaurant")
 
       # "%#{@activity.category}%"
