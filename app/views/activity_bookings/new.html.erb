@@ -1,16 +1,15 @@
-<h1 id="add-activity">ADD A NEW ACTIVITY</h1>
-<%= simple_form_for([@trip, @activity_booking]) do |t| %>
-<div class="row">
-<%= t.input :activity_id, input_html: { value: params[:activity_id] }, as: :hidden %>
-
-<div class="form-group col-lg-6">
-  <%= t.input :people, class: 'form-control' %>
+<%= form_for([@trip, @activity_booking]) do |t| %>
+<div class="d-none">
+<%= t.text_field :activity_id, value: params[:activity_id], as: :hidden %>
 </div>
-</div>
-<div class="form-group">
-  <%= t.input :booking_date, class: 'form-control' %>
+<div class="label text-center" id="ab-1">
+    <%= t.label :Confirm_your_activity_booking %>
+  </div>
+<div class="d-flex row">
+    <%= t.number_field :people, class: 'form-control col-lg-6', min: 1, placeholder: 'How many people?' %>
+    <%= t.datetime_field :booking_date, class: 'form-control col-lg-6', id: 'timeframe', placeholder: 'Check-in date' %>
 </div>
 <div class="form-group text-center">
-  <%= t.button :submit, class: "btn btn-primary mt-5", id: "button-home-1" %>
+  <%= t.button :submit, class: "btn btn-primary mt-5", id: "button-home-3" %>
 </div>
 <%end%>
