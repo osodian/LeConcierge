@@ -23,7 +23,6 @@ class HotelBookingsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @hotel_booking = HotelBooking.new(hotel_booking_params)
     @hotel_booking.trip = @trip
-    @hotel_booking.trip.user = current_user
     if @hotel_booking.save!
       redirect_to trip_path(@trip), notice: 'New hotel Booking was created successfully!'
     else

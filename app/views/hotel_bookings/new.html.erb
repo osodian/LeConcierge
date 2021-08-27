@@ -1,7 +1,16 @@
-<%= simple_form_for([@trip, @hotel_booking]) do |f| %>
-  <%= f.input :hotel_id, input_html: { value: params[:hotel_id] }, as: :hidden %>
-  <%= f.input :date_coming %>
-  <%= f.input :date_leaving %>
-  <%# <%= f.association :hotel %> %>
-  <%= f.button :submit %>
+<%= form_for([@trip, @hotel_booking]) do |t| %>
+  <div class="d-none">
+  <%= t.text_field :hotel_id, value: params[:hotel_id], as: :hidden%>
+  </div>
+  <div class="label text-center" id="ab-1">
+    <%= t.label :For_which_days_do_you_need_an_accommodation? %>
+  </div>
+    <div class="timeframe d-flex justify-content-between row">
+    <%= t.datetime_field :date_coming, class: 'form-control col-lg-6', id: 'timeframe', placeholder: 'Check-in date' %>
+    <%= t.datetime_field :date_leaving, class: 'form-control col-lg-6', id: 'timeframe', placeholder: 'Check-out date' %>
+    </div>
+  <%# <%= f.association :hotel %>
+    <div class="text-center">
+      <%= t.button :submit, class: 'mt-5', id: 'button-home-3' %>
+    </div>
 <%end%>

@@ -33,6 +33,23 @@
   border: 1px solid #997E41;
 }
 
+#button-new {
+ padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: black;
+  color: white;
+  border: 1px solid #997E41;
+}
+
+#button-new:hover {
+  border-radius: 0 !important;
+  background-color: rgb(58, 57, 57);
+  color: white;
+  border: 1px solid rgb(58, 57, 57);
+}
+
 #button-home-3 {
   padding-top: 10px;
   padding-bottom: 10px;

@@ -47,13 +47,13 @@ puts "Created #{lcsuhita.name}"
 lcsuhita.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_restaurants/lcsuhita.jpg')),
                   filename: 'lcsuhita.jpg')
 
-numa_attrs = { city: 'Madrid', name: 'Numa', address: 'C. de Velázquez, 18, 28001 Madrid, Spain', description: 'Discover the great classics of Italian cuisine and their fusion with international cuisine in an environment that will transport you to the most romantic past.', category: 'italien restaurant', price_class: 4 }
+numa_attrs = { city: 'Madrid', name: 'Numa', address: 'C. de Velázquez, 18, 28001 Madrid, Spain', description: 'Discover the great classics of Italian cuisine and their fusion with international cuisine in an environment that will transport you to the most romantic past.', category: 'italian restaurant', price_class: 4 }
 numa = Activity.create!(numa_attrs)
 puts "Created #{numa.name}"
 numa.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_restaurants/numa.jpg')),
                   filename: 'numa.jpg')
 
-amazonico_attrs = { city: 'Madrid', name: 'Amazonico', address: 'C. Jorge Juan, 20, 28001 Madrid, Spain', description: 'Amazónico opens its doors in the summer of 2016 and fills the heart of the Barrio de Salamanca, Madrid with freshness, aromas and sensations. Crossing its threshold is entering the greenery and exuberance of the Amazon jungle. The gastronomic proposal is inspired by tropical, Asian and Mediterranean cuisine, with references to Brazilian gastronomy, the country of origin of our chef Sandro Silva.', category: 'italien restaurant', price_class: 4 }
+amazonico_attrs = { city: 'Madrid', name: 'Amazonico', address: 'C. Jorge Juan, 20, 28001 Madrid, Spain', description: 'Amazónico opens its doors in the summer of 2016 and fills the heart of the Barrio de Salamanca, Madrid with freshness, aromas and sensations. Crossing its threshold is entering the greenery and exuberance of the Amazon jungle. The gastronomic proposal is inspired by tropical, Asian and Mediterranean cuisine, with references to Brazilian gastronomy, the country of origin of our chef Sandro Silva.', category: 'italian restaurant', price_class: 4 }
 amazonico = Activity.create!(amazonico_attrs)
 puts "Created #{amazonico.name}"
 amazonico.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_restaurants/amazonico.jpg')),
