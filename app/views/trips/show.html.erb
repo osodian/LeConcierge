@@ -10,7 +10,7 @@
             <% dates_array = (@trip.date_coming.strftime("%b %d, %Y").to_date..@trip.date_leaving.strftime("%b %d, %Y").to_date).map {|d| d } %>
               <% dates_array.each do |date| %>
                 <div class="nav-link">
-                  <%= date %>
+                  <%= date.strftime("%A, %b %d") %>
                 </div>
               <% end %>
         </div>
@@ -90,11 +90,53 @@
             </div>
           </div>
         </div>
-        <% end %>
+      <% end %>
+<%# "%b %d, %Y" %>
+      <% dates_array_two = (@trip.date_coming.strftime("%A, %b %d").to_date..@trip.date_leaving.strftime("%A, %b %d").to_date).map {|d| d } %>
+        <% dates_array_two.each do |date_two| %>
+        <%# raise %>
+          <%#= date_two.strftime("%A, %b %d") %>
+          <div class="card" id="default-card">
+            <div class="row">
+              <div class="col-lg-2" id="default-activity-icon">
+                <%#= link_to trip_activity_bookings_path(@trip) do %>
+                  <%# <i id="fas fa-calendar-day" style="font-size:40px;"></i> %>
+                <%# end %>
+              </div>
+              <div class="col-lg-8" id="activity-infos">
+                <%# <p id="default-card-content">Nothing added yet</p> %>
+                <h3 id="default-card-content"><%= date_two.strftime("%A, %b %d") %></h3>
+                </div>
+                <div class="col-md-2" id="default-edit-icon">
+                  <%# <i class="material-icons" style="font-size:32px;">celebration</i> %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <% @trip.hotel_bookings.each do |hotel|%>
         <div class="day-program">
           <div class="d-flex justify-content-between">
-            <h4>Check in: <%= hotel.date_coming.strftime("%b %d, %Y") %></h4>
+            <h4>Check in: <%= hotel.date_coming.strftime("%A, %b %d") %></h4>
             <%= link_to "Delete #{hotel.hotel.name} Reservation" , hotel_booking_path(hotel), method: :delete, data: { confirm: "Are you sure?" }%>
           </div>
           <div class="card">
@@ -120,7 +162,7 @@
         <% @activity_bookings.each do |activity|%>
         <div class="day-program">
           <div class="day">
-            <h4><%= activity.booking_date.strftime("%b %d, %Y") %></h4>
+            <h4><%= activity.booking_date.strftime("%A, %b %d") %></h4>
             <%= link_to "Delete #{activity.activity.name} Reservation", activity_booking_path(activity), method: :delete, data: { confirm: "Are you sure?" }%>
           </div>
         <div class="card">
@@ -159,7 +201,7 @@
 
       <% @trip.hotel_bookings.each do |hotel|%>
       <div class="day-program">
-        <h4>Check out: <%= hotel.date_leaving.strftime("%b %d, %Y") %></h4>
+        <h4>Check out: <%= hotel.date_leaving.strftime("%A, %b %d")%></h4>
         <div class="card">
           <div class="row">
             <div class="col-lg-2" id="activity-icon">
