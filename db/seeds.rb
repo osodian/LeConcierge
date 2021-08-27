@@ -62,14 +62,14 @@ amazonico.photo.attach(io: File.open(Rails.root.join('app/assets/images/activiti
 museum_one_attrs = { city: 'Madrid', name: 'Museo Nacional Centro de Arte Reina Sofía', address: 'C. de Sta. Isabel, 52, 28012 Madrid, Spain', description: 'The Museo Nacional Centro de Arte Reina Sofía is Spains national museum of 20th-century art. The museum was officially inaugurated on September 10, 1990, and is named for Queen Sofía. It is located in Madrid, near the Atocha train and metro stations, at the southern end of the so-called Golden Triangle of Art.', price: 15, category: 'museum', price_class: 1 }
 museum_one = Activity.create!(museum_one_attrs)
 puts "Created #{museum_one.name}"
-museum_one.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_museum/museum_one.jpg')),
-                  filename: 'museum_one.jpg')
+museum_one.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_museum/museum_one.jpeg')),
+                  filename: 'museum_one.jpeg')
 
 museum_two_attrs = { city: 'Madrid', name: 'Museo Nacional del Prado', address: 'C. de Ruiz de Alarcón, 23, 28014 Madrid, Spain', description: 'The Prado Museum, officially known as Museo Nacional del Prado, is the main Spanish national art museum, located in central Madrid.', price: 37, category: 'museum', price_class: 3 }
 museum_two = Activity.create!(museum_two_attrs)
 puts "Created #{museum_two.name}"
-museum_two.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_museum/museum_two.jpg')),
-                  filename: 'museum_two.jpg')
+museum_two.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_museum/museum_two.jpeg')),
+                  filename: 'museum_two.jpeg')
 
 # [suhitam, suhitac, msuhita, lcsuhita, numa, amazonico].each do |attributes|
 #   activity = Activity.create!(attributes)
