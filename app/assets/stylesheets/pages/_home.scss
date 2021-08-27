@@ -56,7 +56,9 @@ p {
   padding-top: 200px;
   padding-bottom: 20px;
   height: 60%;
-  background-image: asset-url('background.png');
+  // background-image: asset-url('background.png');
+  background-image: asset-url('background_18.jpg');
+
   background-size: cover;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
@@ -113,7 +115,11 @@ p {
 }
 
 #flexbox_black {
-  background-color: black;
+  // background-color: black;
+  background-image: asset-url('background_17.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(20%);
   display: grid;
   place-items: center;
 }
