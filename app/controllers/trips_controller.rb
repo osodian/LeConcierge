@@ -12,7 +12,7 @@ class TripsController < ApplicationController
         lng: trip.longitude,
         info_window: render_to_string(partial: "info_window_trip", locals: {
           trip: trip }),
-          image_url: helpers.asset_url('icons/flag.png')
+          image_url: helpers.asset_url('icons/pin.png')
         }
       end
       @trips = @trips.sort_by { |trip|[trip.date_coming] }
@@ -82,7 +82,7 @@ class TripsController < ApplicationController
         lng: hotel.longitude,
         info_window: render_to_string(partial: "info_window_hotel", locals: {
         hotel: hotel }),
-        image_url: helpers.asset_url('icons/door.png')
+        image_url: helpers.asset_url('icons/hotel.png')
       }
     end
     markers_activities = @trip.activities.geocoded.map do |activity|
@@ -91,7 +91,7 @@ class TripsController < ApplicationController
         lng: activity.longitude,
         info_window: render_to_string(partial: "info_window_activity", locals: {
         activity: activity }),
-        image_url: helpers.asset_url('icons/confiusing_bell.png')
+        image_url: helpers.asset_url('icons/restaurant.png')
       }
     end
     @markers = markers_hotels.concat markers_activities
