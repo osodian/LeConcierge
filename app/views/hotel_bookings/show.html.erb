@@ -1,11 +1,23 @@
-<p>The Hotel: <%= link_to @hotel_booking.trip.destination, trip_path(@hotel_booking.trip) %></p>
-<p><%= @hotel_booking.trip %></p>
-<p><%= @hotel_booking.hotel.name %></p>
-<p><%= @hotel_booking.hotel.address %></p>
-<p><%= @hotel_booking.hotel.description %></p>
-<p><%= @hotel_booking.hotel.price %></p>
-<p><%= @hotel_booking.hotel.price_class %></p>
+<div class="background-show d-flex justify-content-center">
+  <div class="background_show_activity">
+    <div class="background_show_activity_two">
+      <div class="text-left">
+        <%= link_to "BACK", trip_path(@hotel_booking.trip), class: "btn btn-primary", id:"button-left-2" %>
+      </div>
+      <%# <p><%= @activity_booking.trip</p> %>
+      <h3 class="text-center"><%= @hotel_booking.hotel.name %></h3>
+      <h4><b>Price Class</b></h4>
+      <p><%= @hotel_booking.hotel.price_class %></p>
+      <h4><b>Description</b></h4>
+      <p><%= @hotel_booking.hotel.description %></p>
+      <h4><b>Adress</b></h4>
+      <p><%= @hotel_booking.hotel.address %></p>
+      <h4><b>Price</b></h4>
+      <p><%= @hotel_booking.hotel.price %></p>
 
-<p><%= @hotel_booking.date_coming %></p>
-<p><%= @hotel_booking.date_leaving %></p>
-<p><%= @hotel_booking.status %></p>
+      <h4><b>Booking Timreframe</b></h4>
+      <p><%= @hotel_booking.date_coming.strftime("%A, %b %d") %> - <%= @hotel_booking.date_leaving.strftime("%A, %b %d") %></p>
+
+    </div>
+  </div>
+</div>
