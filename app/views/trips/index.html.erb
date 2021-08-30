@@ -8,22 +8,22 @@
   <%# <p>Leaving Date: = trip.date_leaving</p> %>
   <%# <p>= trip.type_transportation</p> %>
   <%# <p>Number of people: = trip.people</p> %>
+  <%# <br>
   <br>
   <br>
-  <br>
-  <br>
+  <br> %>
 <%# end %>
-
+<div class="justify-content-center" id="all-trips">
 <% @trips.each do |trip|%>
-  <div class="card" id="default-card">
+  <div class="card-trips" id="a-t-c">
     <div class="row">
-      <div class="col-lg-2" id="default-activity-icon_index_trips">
+      <div class="col-lg-2" id="default-activity-icon_index_trip">
         <%= link_to trip_path(trip) do %>
           <i id="add-icon" class="fas fa-map-marker-alt" style="font-size:40px;"></i>
         <% end %>
       </div>
 
-      <div class="col-lg-8" id="activity-infos">
+      <div class="col-lg-8" id="activity-info">
           <p id="default-card-content_index_trips">Your Trip to:</p>
           <%= link_to trip_path(trip) do %>
             <h3 id="default-card-content_index_trips"><%= trip.destination %></h3>
@@ -42,7 +42,7 @@
     </div>
   </div>
 <% end %>
-
+</div>
 
 <div id="map"
      style="width: 100%; height: 600px;"

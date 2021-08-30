@@ -61,7 +61,7 @@
 }
 #date_card {
   margin-left: 40px;
-  background-color: rgb(230, 230, 230);
+  background-color: white;
   margin-bottom: 10px;
 }
 
@@ -182,4 +182,12 @@
 .background_show_activity_two h3 {
   color: #BF9D51;
   padding-bottom: 10px;
+}
+
+#default-activity-icons {
+  border-right: 1px solid #BF9D51;
+  color: #BF9D51;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
