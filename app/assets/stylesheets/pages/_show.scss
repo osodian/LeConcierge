@@ -151,8 +151,30 @@
 #madrid {
   background-image: asset-url('madrid_trip_show.jpg');
   background-size: cover;
+  height: 1000px;
 }
 
 #unnecessary_center{
   text-align: center;
+}
+
+.background_show_activity {
+  background-image: asset-url('show_activity.jpg');
+  background-size: cover;
+  height: 1000px;
+}
+
+.background_show_activity_two {
+  background-color: white;
+  width: 500px;
+  // text-align: center;
+  padding-top: 100px;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.background_show_activity_two h3 {
+  color: #BF9D51;
+  text-shadow: 1px 15px #523904;
+
 }
