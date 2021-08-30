@@ -71,8 +71,23 @@ puts "Created #{museum_two.name}"
 museum_two.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_museum/museum_two.jpeg')),
                   filename: 'museum_two.jpeg')
 
-# [suhitam, suhitac, msuhita, lcsuhita, numa, amazonico].each do |attributes|
-#   activity = Activity.create!(attributes)
+liberty_attrs = { city: 'Madrid',name: 'Liberty Club', address: 'Calle de Juan Bravo, 31, 28006 Madrid, Spain', description: 'Liberty Madrid is one of the most popular creations of Madrids posh neighbourhood Barrio Salamanca. The fashionable club has two floors of music ', category: 'club', price_class: 3 }
+liberty = Activity.create!(liberty_attrs)
+puts "Created #{liberty.name}"
+liberty.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_restaurants/liberty_Activity.jpg')),
+                  filename: 'liberty_Activity.jpg')
+
+icon_attrs = { city: 'Madrid',name: 'Icon Club', address: 'Calle del Dr Cortezo, 1, 28012 Madrid, Spain', description: 'Icon Madrid is a club with a lot of history located in the city center below the impressive Teatro Calderón. ', category: 'club', price_class: 2 }
+icon = Activity.create!(icon_attrs)
+puts "Created #{icon.name}"
+icon.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_restaurants/icon_Activity.jpg')),
+                  filename: 'icon_Activity.jpg')
+
+bardot_attrs = { city: 'Madrid',name: 'Bardot Club', address: 'C. de Joaquín Costa, 29, 28002 Madrid, Spain', description: 'Bardot Madrid is a club with a lot of history located in the city center below the impressive Teatro Calderón.', category: 'club', price_class: 2 }
+bardot = Activity.create!(bardot_attrs)
+puts "Created #{bardot.name}"
+bardot.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_restaurants/bardot_Activity.jpg')),
+                  filename: 'bardot_Activity.jpg')#   activity = Activity.create!(attributes)
 #   puts "Created #{activity.name}"
 # end
 
@@ -91,3 +106,35 @@ four.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/ac
 #   hotel = Hotel.create!(attributes)
 #   puts "Created #{hotel.name}"
 # end
+
+nh = { city: 'Madrid', name: 'NH Hotel', address: 'Gran Via, 21, 28013 Madrid, Spain', description: 'Keeping both our guests and staff safe is one of our biggest priorities. For this reason certain services or amenities may not be available, or only available on request, at this hotel during your stay.', price: 135, price_class: 2 }
+nh_hotel = Hotel.create!(nh)
+  puts "Created #{nh_hotel.name}"
+nh_hotel.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/NH_Hotel.jpg')),
+                  filename: 'NH_Hotel.jpg')
+
+
+riu = { city: 'Madrid', name: 'Riu Hotel', address: 'C/ Gran Vía, 84, 28013 Madrid, Spain', description: 'RIU Plaza España. No Reservation Costs. Great Rates. Low Rates. Special Offers. Best Price Guarantee. Great Availability. No Booking Fees. Types: Hotels, Apartments, Villas, Hostels, Resorts, B&Bs.', price: 104, price_class: 2 }
+riu_hotel = Hotel.create!(riu)
+  puts "Created #{riu_hotel.name}"
+riu_hotel.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/riu_Hotel.jpg')),
+                  filename: 'riu_Hotel.jpg')
+
+
+nuevo = { city: 'Madrid', name: 'Nuevo Boston', address: ' Av. de Aragón, 332, 28022 Madrid, Spain', description: 'Stay in the Nuevo Boston Hotel, a hotel near Adolfo Suarez Airport of Madrid-Barajas, estadium Wanda Metropolitano and near IFEMA specialised in leisure', price: 52, price_class: 1 }
+nuevo_hotel = Hotel.create!(nuevo)
+  puts "Created #{nuevo_hotel.name}"
+nuevo_hotel.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/nuevo_Hotel.jpg')),
+                  filename: 'nuevo_Hotel.jpg')
+
+ibis = { city: 'Madrid', name: 'Ibis Hotel', address: 'Av. General, 49, 28042 Madrid, Spain', description: 'For A Quality, Affordable Stay! Enjoy an Outstanding Stay with ibis. Benefit from our Services at Exclusive Prices.', price: 69, price_class: 1 }
+ibis_hotel = Hotel.create!(ibis)
+  puts "Created #{ibis_hotel.name}"
+ibis_hotel.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/ibis_Hotel.jpg')),
+                  filename: 'ibis_Hotel.jpg')
+
+clement = { city: 'Madrid', name: 'clement Hotel', address: 'Av. General, 43, 28042 Madrid, Spain', description: 'Clement Hotel offers you a unique experience in a privileged place, with multiple possibilities, just a few minutes from Madrid airport. ', price: 75, price_class: 2 }
+clement_hotel = Hotel.create!(clement)
+  puts "Created #{clement_hotel.name}"
+clement_hotel.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/clement_Hotel.jpg')),
+                  filename: 'clement_Hotel.jpg')
