@@ -137,3 +137,39 @@
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
 }
+
+#all-trips {
+  display: grid;
+  margin-top: 175px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-trips {
+  max-width: 600px;
+  overflow-y:scroll;
+  z-index:1;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  padding:20px;
+  justify-content: space-between;
+  background-color: black;
+}
+
+#a-t-c {
+  margin-left: 40px;
+  background-color: white;
+}
+
+#default-activity-icon_index_trip {
+  border-right: 1px solid #BF9D51;
+  color: #BF9D51;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#activity-info {
+  border-right: 1px solid #BF9D51;
+  padding-left:30px;
+  padding-right: 30px;
+}
