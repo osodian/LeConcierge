@@ -1,11 +1,25 @@
-<p>The Trip: <%= link_to @activity_booking.trip.destination, trip_path(@activity_booking.trip) %></p>
-<p><%= @activity_booking.trip %></p>
-<p><%= @activity_booking.activity.name %></p>
-<p><%= @activity_booking.activity.description %></p>
-<p><%= @activity_booking.activity.address %></p>
-<p><%= @activity_booking.activity.category %></p>
-<p><%= @activity_booking.activity.price_class %></p>
+<div class="background-show d-flex justify-content-center">
+  <div class="background_show_activity">
+    <div class="background_show_activity_two">
+      <div class="text-left">
+        <%= link_to "BACK", trip_path(@activity_booking.trip), class: "btn btn-primary", id:"button-left-2" %>
+      </div>
+      <%# <p><%= @activity_booking.trip</p> %>
+      <h3 class="text-center"><%= @activity_booking.activity.name %></h3>
+      <h4><b>Category</b></h4>
+      <p><%= @activity_booking.activity.category.capitalize %></p>
+      <h4><b>Description</b></h4>
+      <p><%= @activity_booking.activity.description %></p>
+      <h4><b>Adress</b></h4>
+      <p> <%= @activity_booking.activity.address %></p>
+      <h4><b>Price Class</b></h4>
+      <p><%= @activity_booking.activity.price_class %></p>
 
-<p><%= @activity_booking.booking_date %></p>
-<p><%= @activity_booking.people %></p>
-<p><%= @activity_booking.status %></p>
+      <h4><b>Booking Date</b></h4>
+      <p><%= @activity_booking.booking_date.strftime("%A, %b %d") %></p>
+      <h4><b>Number of People</b></h4>
+      <p><%= @activity_booking.people %></p>
+      <%# <p><%= @activity_booking.status</p> %>
+    </div>
+  </div>
+</div>

@@ -15,3 +15,4 @@ end
 # rails generate model Hotel date_coming:datetime date_leaving:datetime name:string address:string price:integer description:text price_class:string
 # rails generate model HotelBookings trip:references hotel:references status:boolean
 # rails generate model ActivityBooking trip:references activity:references status:boolean people:integer booking_date:datetime
+# moin
