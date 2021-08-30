@@ -1,21 +1,26 @@
 <div class="container mt-3 mb-5" data-controller="trips-form">
   <div class="d-flex mb-5" id="bar-1">
-    <div class="bar-item col-lg-3 completed" id="destination-tab">Destination</div>
+    <div class="bar-item col-lg-3 completed" id="destination-tab" data-trips-form-target="destinationTab">Destination</div>
     <div class="bar-item col-lg-3" id="timeframe-tab" data-trips-form-target="timeframeTab">Timeframe</div>
     <div class="bar-item col-lg-3" id="people-tab" data-trips-form-target="peopleTab">People</div>
     <div class="bar-item col-lg-3" id="transport-tab" data-trips-form-target="transportTab">Transport</div>
   </div>
 
   <%= form_for(@trip) do |t| %>
-  <div class="form-group" data-trips-form-target="group">
+  <div class="form-group" data-trips-form-target="destination group">
     <div class="label text-center">
     <%= t.label :Which_destination_would_you_like_to_visit? %>
     </div>
     <div>
     <%= t.text_field :destination, class: 'form-control', placeholder: 'Hamburg' %>
     </div>
-    <div class="text-right">
-    <div class="btn mt-5 text-center next" id="button-new" data-action="click->trips-form#revealTimeframe">Next</div>
+    <div class="buttons-below d-flex justify-content-between">
+      <div class="text-left">
+        <%= link_to "Go Back", root_path, class: "btn mt-5 text-center next", id:"button-left" %>
+      </div>
+      <div class="text-right">
+        <div class="btn mt-5 text-center next" id="button-right" data-action="click->trips-form#revealTimeframe">Next</div>
+      </div>
     </div>
   </div>
   <div class="form-group d-none" data-trips-form-target="timeframe group">
@@ -26,8 +31,13 @@
     <%= t.date_field :date_coming, class: 'form-control col-lg-6', id: 'timeframe', placeholder: 'Check-in date' %>
     <%= t.date_field :date_leaving, class: 'form-control col-lg-6', id: 'timeframe', placeholder: 'Check-out date' %>
     </div>
+    <div class="buttons-below d-flex justify-content-between">
+    <div class="text-left">
+    <div class="btn mt-5 text-center next" id="button-left" data-action="click->trips-form#previousDestination">Previous</div>
+    </div>
     <div class="text-right">
-    <div class="btn mt-5 text-center next" id="button-new" data-action="click->trips-form#revealPeople">Next</div>
+    <div class="btn mt-5 text-center next" id="button-right" data-action="click->trips-form#revealPeople">Next</div>
+    </div>
     </div>
   </div>
   <div class="form-group d-none" data-trips-form-target="people group">
@@ -37,8 +47,13 @@
     <div>
     <%= t.number_field :people, class: 'form-control', min: 1 %>
     </div>
-    <div class="text-right">
-    <div class="btn mt-5 text-center next" id="button-new" data-action="click->trips-form#revealTransport">Next</div>
+    <div class="buttons-below d-flex justify-content-between">
+      <div class="text-left">
+        <div class="btn mt-5 text-center next" id="button-left" data-action="click->trips-form#previousTimeframe">Previous</div>
+      </div>
+      <div class="text-right">
+        <div class="btn mt-5 text-center next" id="button-right" data-action="click->trips-form#revealTransport">Next</div>
+      </div>
     </div>
   </div>
 
@@ -49,8 +64,13 @@
     <div>
      <%= t.select :type_transportation, collection: User::TRANSPORTATION, class: 'form-control' %>
     </div>
-    <div class="text-right mt-5">
-    <button class="btn btn-primary col-lg-4", id="button-submit">Create your trip!</button>
+    <div class="buttons-below d-flex justify-content-between">
+      <div class="text-left">
+        <div class="btn mt-5 text-center next" id="button-left" data-action="click->trips-form#previousPeople">Previous</div>
+      </div>
+      <div class="text-right mt-5">
+        <button class="btn btn-primary", id="button-submit">Create your trip!</button>
+      </div>
     </div>
   </div>
   </div>
