@@ -1,11 +1,15 @@
-<p>The Trip: <%= link_to @activity_booking.trip.destination, trip_path(@activity_booking.trip) %></p>
-<p><%= @activity_booking.trip %></p>
-<p><%= @activity_booking.activity.name %></p>
-<p><%= @activity_booking.activity.description %></p>
-<p><%= @activity_booking.activity.address %></p>
-<p><%= @activity_booking.activity.category %></p>
-<p><%= @activity_booking.activity.price_class %></p>
+<div class="background_show_activity">
+  <div class="background_show_activity_two">
+    <p>The Trip: <%= link_to @activity_booking.trip.destination, trip_path(@activity_booking.trip) %></p>
+    <p><%= @activity_booking.trip %></p>
+    <h3><%= @activity_booking.activity.name %></h3>
+    <p><%= @activity_booking.activity.description %></p>
+    <p><%= @activity_booking.activity.address %></p>
+    <p><%= @activity_booking.activity.category %></p>
+    <p><%= @activity_booking.activity.price_class %></p>
 
-<p><%= @activity_booking.booking_date %></p>
-<p><%= @activity_booking.people %></p>
-<p><%= @activity_booking.status %></p>
+    <p><%= @activity_booking.booking_date %></p>
+    <p><%= @activity_booking.people %></p>
+    <p><%= @activity_booking.status %></p>
+  </div>
+</div>
