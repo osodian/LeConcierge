@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  # root to: 'pages#team'
+  get "/pages/:page" => "pages#show"
   resources :trips do
     resources :activity_bookings, only: [:index, :new, :create, :update, :edit, :show ]
     resources :hotel_bookings, only: [:index, :new, :create, :update, :edit, :show ]
