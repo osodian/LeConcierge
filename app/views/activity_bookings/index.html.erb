@@ -1,11 +1,11 @@
 <div data-controller="activity-bookings">
   <div class="d-flex mb-5" id="menu-bar">
     <div class="bar-item col-lg-2 completed" id="all-tab" data-activity-bookings-target="allTab groupTab" data-action="click->activity-bookings#revealAll">All</div>
-    <div class="bar-item col-lg-2" id="restaurant-tab" data-activity-bookings-target="restaurantTab groupTab" data-action="click->activity-bookings#revealRestaurant">Restaurant</div>
-    <div class="bar-item col-lg-2" id="museum-tab" data-activity-bookings-target="museumTab groupTab" data-action="click->activity-bookings#revealMuseum">Museum</div>
-    <div class="bar-item col-lg-2" id="club-tab" data-activity-bookings-target="clubTab groupTab" data-action="click->activity-bookings#revealClub">Club</div>
-    <div class="bar-item col-lg-2" id="sight-tab" data-activity-bookings-target="sightTab groupTab" data-action="click->activity-bookings#revealSight">Sightseeing</div>
-    <div class="bar-item col-lg-2" id="outdoor-tab" data-activity-bookings-target="outdoorTab groupTab" data-action="click->activity-bookings#revealOutdoor">Outdoor Activity</div>
+    <div class="bar-item col-lg-2" id="restaurant-tab" data-activity-bookings-target="restaurantTab groupTab" data-action="click->activity-bookings#revealRestaurant">Restaurants</div>
+    <div class="bar-item col-lg-2" id="museum-tab" data-activity-bookings-target="museumTab groupTab" data-action="click->activity-bookings#revealMuseum">Museums</div>
+    <div class="bar-item col-lg-2" id="club-tab" data-activity-bookings-target="clubTab groupTab" data-action="click->activity-bookings#revealClub">Clubs</div>
+    <div class="bar-item col-lg-2" id="sight-tab" data-activity-bookings-target="sightTab groupTab" data-action="click->activity-bookings#revealSight">Sights</div>
+    <div class="bar-item col-lg-2" id="outdoor-tab" data-activity-bookings-target="outdoorTab groupTab" data-action="click->activity-bookings#revealOutdoor">Outdoor</div>
   </div>
 
 <div class="activity-index-container" data-activity-bookings-target="restaurant group">
@@ -75,4 +75,39 @@
   </div>
 <% end %>
 </div>
+
+<div class="activity-index-container" data-activity-bookings-target="club group">
+<% @clubs.each do |activity|%>
+  <div class="body_activity_show">
+    <div class="container_activity_show">
+      <div class="card_activity_show">
+        <div class="card-header_activity_show">
+          <%= image_tag activity.photo%>
+          <%# , height: 500, width: 700, crop: :fill %>
+        </div>
+        <div class="card-body_activity_show">
+            <span class="tag_activity_show tag-teal_activity_show align-center">
+              <%= link_to new_trip_activity_booking_path(@trip, activity_id: activity.id) do %>
+                <button class="btn btn-primary" id="button-home-3">Add this activity</button>
+            <% end %>
+          </span>
+          <br>
+          <h4><%= activity.name %></h4>
+          <h5><%= activity.category.capitalize %></h5>
+
+          <p><%#= activity.description %></p>
+          <div class="user_activity_show">
+            <div class="user-info_activity_show">
+              <h5><%#= activity.category %></h5>
+              <h5>Price Class: <%= activity.price_class %>/4</h5>
+              <small><%= activity.address %></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
 </div>

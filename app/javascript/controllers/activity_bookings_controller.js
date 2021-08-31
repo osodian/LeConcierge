@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
 
-  static targets = ["allTab", "restaurantTab", "museumTab", "clubTab", "sightTab", "outdoorTab", "groupTab", "group", "museum", "restaurant"]
+  static targets = ["allTab", "restaurantTab", "museumTab", "clubTab", "sightTab", "outdoorTab", "groupTab", "group", "restaurant", "museum", "club"]
 
   revealAll() {
     this.groupTabTargets.forEach(groupTab => groupTab.classList.remove('completed'));
@@ -28,7 +28,8 @@ export default class extends Controller {
   revealClub() {
     this.groupTabTargets.forEach(groupTab => groupTab.classList.remove('completed'));
     this.clubTabTarget.classList.add('completed')
-    // this.MuseumTarget.classList.remove("d-none")
+    this.groupTargets.forEach(group => group.classList.add('d-none'));
+    this.clubTarget.classList.remove("d-none")
   }
 
   revealSight() {
