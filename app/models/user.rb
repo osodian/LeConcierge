@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_invitations
 
-  TRANSPORTATION = [['Bus'], ['Plane'], ['Car'], ['Train']]
+  TRANSPORTATION = [['No'], ['Bus'], ['Plane'], ['Car'], ['Train']]
 end
 
 # rails generate model Trip user:references total_price:integer booked:boolean date_coming:datetime date_leaving:datetime destination:string type_transportation:string people:integer

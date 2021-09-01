@@ -18,6 +18,9 @@
     </div>
   </div>
   <div id="middle">
+    <div class="text-right">
+        <%= link_to "Book your trip", trips_path, class: "btn btn-primary", id:"button-book" %>
+    </div>
     <div id="destination">
       <h2 class="text-center">Your trip to <%= @trip.destination %></h2>
     </div>
