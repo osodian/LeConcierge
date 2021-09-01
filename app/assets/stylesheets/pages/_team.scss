@@ -23,11 +23,43 @@
 .name {
   width: 75%;
   background-color: white;
-  padding-left: 5px;
+  padding-left: 20px;
+  padding-left: 10px;
 }
 
-.image_box {
+.image_box_friedrich {
   width: 25%;
   height: 400px;
+  background-image: asset-url('friedrich.jpg');
+  background-size: cover;
+  background-position: center;
   background-color: black;
+}
+
+.image_box_oscar {
+  width: 25%;
+  height: 400px;
+  background-image: asset-url('oscar.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+}
+
+.image_box_louis {
+  width: 25%;
+  height: 400px;
+  background-image: asset-url('louis.PNG');
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+}
+
+.icon_linkedin {
+  font-size: 50px;
+  margin-left: 10px;
+}
+
+.icon_linkedin:hover {
+  font-size: 50px;
+  color: #997E41;
 }
