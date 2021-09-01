@@ -8,23 +8,17 @@
   display: grid;
 }
 
-.Friedrich {
+.Member {
   display: flex;
-}
-
-.Oscar {
-  display: flex;
-}
-
-.Louis {
-  display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 20px;
 }
 
 .name {
   width: 75%;
   background-color: white;
-  padding-left: 20px;
-  padding-left: 10px;
+  padding: 20px;
 }
 
 .image_box_friedrich {
@@ -39,7 +33,7 @@
 .image_box_oscar {
   width: 25%;
   height: 400px;
-  background-image: asset-url('oscar.jpg');
+  background-image: asset-url('oscar-pepsi.jpg');
   background-size: cover;
   background-position: center;
   background-color: black;
@@ -56,7 +50,6 @@
 
 .icon_linkedin {
   font-size: 50px;
-  margin-left: 10px;
 }
 
 .icon_linkedin:hover {
