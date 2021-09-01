@@ -61,8 +61,8 @@
     <div class="label text-center ">
      <%= t.label :Do_you_need_a_transport_recommendation? %>
     </div>
-    <div> Recomendations:
-      <%= t.select :type_transportation, User::TRANSPORTATION, {}, { class: 'select2' } %>
+    <div>
+      <%= t.select :type_transportation, User::TRANSPORTATION, {}, { class: 'select2, form-control' } %>
     </div>
     <div class="buttons-below d-flex justify-content-between">
       <div class="text-left">
