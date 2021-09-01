@@ -156,6 +156,10 @@
                         <div class="col-lg-2" id="activity-icon">
                           <i class="fas fa-landmark" style="font-size:50px;"></i>
                         </div>
+                      <% elsif activity.activity.category.include?('club') %>
+                        <div class="col-lg-2" id="activity-icon">
+                          <i class="fas fa-glass-cheers" style="font-size:50px;"></i>
+                        </div>
                       <% end %>
                       <div class="col-lg-8" id="activity-infos">
                           <%= link_to trip_activity_booking_path(@trip, activity) do %>
