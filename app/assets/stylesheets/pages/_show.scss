@@ -59,11 +59,17 @@
   margin-left: 40px;
   background-color: rgb(230, 230, 230);
 }
-#date_card {
+
+.date_card {
   margin-left: 40px;
   background-color: white;
   margin-bottom: 10px;
+  .anchor {
+    position: absolute;
+    top: -150px;
+  }
 }
+
 
 #date_card_two{
   margin-bottom: 10px;

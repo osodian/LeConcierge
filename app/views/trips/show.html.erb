@@ -8,9 +8,9 @@
             Overview
           </div>
             <% dates_array = (@trip.date_coming.strftime("%b %d, %Y").to_date..@trip.date_leaving.strftime("%b %d, %Y").to_date).map {|d| d } %>
-              <% dates_array.each do |date| %>
+              <% dates_array.each do |date_two| %>
                 <div class="nav-link">
-                  <%= date.strftime("%A, %b %d") %>
+                  <a href="#<%= date_two.strftime("%d") %>" class="anti_link>"><%= date_two.strftime("%A, %b %d") %></a>
                 </div>
               <% end %>
         </div>
@@ -96,7 +96,8 @@
         <% dates_array_two.each do |date_two| %>
         <%# raise %>
           <%#= date_two.strftime("%A, %b %d") %>
-          <div class="card" id="date_card">
+          <div class="card date_card">
+          <div class='anchor' id="<%= date_two.strftime("%d") %>"></div>
             <div class="row">
               <div class="col-lg-2" id="default-activity-icons">
                 <%#= link_to trip_activity_bookings_path(@trip) do %>
