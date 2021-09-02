@@ -15,9 +15,13 @@ end
 
 
 puts 'Browse through our trips ...'
-madrid = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'madrid', type_transportation: 'plane', people: 2 }
+# madrid = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'Madrid', type_transportation: 'plane', people: 2 }
+paris = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'Paris', type_transportation: 'plane', people: 2 }
+london = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'London', type_transportation: 'plane', people: 2 }
+berlin = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'Berlin', type_transportation: 'plane', people: 2 }
 
-[madrid].each do |attributes|
+
+[paris, berlin, london].each do |attributes|
   trip = Trip.create!(attributes)
   puts "Created #{trip.destination}"
 end
@@ -90,6 +94,46 @@ bardot.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/
                   filename: 'bardot_Activity.jpg')#   activity = Activity.create!(attributes)
 #   puts "Created #{activity.name}"
 # end
+
+puts 'Browse through sights'
+sol_attrs = { city: 'Madrid',name: 'Puerta del Sol', address: 'Puerta del Sol Madrid, Spain', description: 'Sol is the heart of Madrid, with several busy pedestrian shopping streets converging on 18th-century plaza Puerta del Sol. Modern department stores and old-school tapas bars keep the area lively by day, while the areas pubs and clubs fill with a young crowd at night.', category: 'sight', price_class: 0 }
+sol = Activity.create!(sol_attrs)
+puts "Created #{sol.name}"
+sol.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_sight/sol_Activity.jpg')),
+                  filename: 'sol_Activity.jpg')
+
+major_attrs = { city: 'Madrid',name: 'Plaza de Mayor', address: 'Plaza de mayor Madrid, Spain', description: 'major is the heart of Madrid, with several busy pedestrian shopping streets converging on 18th-century plaza Puerta del major. Modern department stores and old-school tapas bars keep the area lively by day, while the areas pubs and clubs fill with a young crowd at night.', category: 'sight', price_class: 0 }
+major = Activity.create!(major_attrs)
+puts "Created #{major.name}"
+major.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_sight/major_Activity.jpg')),
+                  filename: 'major_Activity.jpg')
+
+royal_attrs = { city: 'Madrid',name: 'Royal Palace of Madrid', address: 'C. de Bailén, s/n, 28071 Madrid, Spain', description: 'The Royal Palace of Madrid is the official residence of the Spanish royal family at the city of Madrid, although now used only for state ceremonies. The palace has 135,000 m² of floor space and contains 3,418 rooms. ', category: 'sight', price_class: 0  }
+royal = Activity.create!(royal_attrs)
+puts "Created #{royal.name}"
+royal.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_sight/royal_Activity.jpg')),
+                  filename: 'royal_Activity.jpg')
+
+
+puts 'Browse through our Outdoors'
+kart_attrs = { city: 'Madrid',name: 'Carlos Sainz Karting', address: 'Las Rozas de Madrid, Spain', description: 'In Carlos Sainz Karting you will discover all the excitement of a Grand Prix. And you will also find unique venues to celebrate your meetings', category: 'outdoor', price_class: 2  }
+kart = Activity.create!(kart_attrs)
+puts "Created #{kart.name}"
+kart.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_outdoor/kart_Activity.jpg')),
+                  filename: 'kart_Activity.jpg')
+
+
+paintball_attrs = { city: 'Madrid',name: 'Paintball Madrid', address: 'Majadahonda, Madrid Spain', description: 'Paintball team play a little bit outside of Madrid. Perfect landscape with many places to hide and feel connected to nature', category: 'outdoor', price_class: 2  }
+paintball = Activity.create!(paintball_attrs)
+puts "Created #{paintball.name}"
+paintball.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_outdoor/paintball_Activity.jpg')),
+                  filename: 'paintball_Activity.jpg')
+
+hike_attrs = { city: 'Madrid',name: 'Sierra de Guadarrama', address: 'Sierra de Guadarrama, Spain', description: 'North of Madrid lies the Sierra de Guadarrama, part of the larger Sistema Central, the chain of mountains snaking down the centre of Spain. With their close proximity to Madrid, the mountains are a popular spot for a day trip, whether you like sports, nature or exploring historic towns and villages.', category: 'outdoor', price_class: 0  }
+hike = Activity.create!(hike_attrs)
+puts "Created #{hike.name}"
+hike.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_outdoor/hike_Activity.jpg')),
+                  filename: 'hike_Activity.jpg')
 
 puts 'Browse through our hotels ...'
 totem_attrs = { city: 'Madrid', name: 'Totem', address: 'C. de Hermosilla, 23, 28001 Madrid, Spain', description: 'Hotel with gym in the center of Madrid. Design and avant-garde with the best service. Enjoy the best prices and exclusive offers on the hotels website', price: 153, price_class: 2 }
