@@ -3,5 +3,5 @@
 meta_product_name: "LeConcierge"
 meta_title: "LeConcierge makes travelling simple, comfortable and extraordinary"
 meta_description: "LeConcierge takes care of your entire trip. Fill your stay with Accommoadtions, Restaurants, Clubs, Sights, Cultural Acitivities and many more. Confirm your booking for all activities with just ONE click."
-meta_image: "favicon.ico" # should exist in `app/assets/images/`
-twitter_account: "@product_twitter_account"   # required for Twitter Cards
+meta_image: "fb_image.jpeg" # should exist in `app/assets/images/`
+twitter_account: "@LeWagonGermany"   # required for Twitter Cards
