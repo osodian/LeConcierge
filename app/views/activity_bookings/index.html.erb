@@ -109,4 +109,71 @@
 <% end %>
 </div>
 
+<div class="activity-index-container" data-activity-bookings-target="sight group">
+<% @sights.each do |activity|%>
+  <div class="body_activity_show">
+    <div class="container_activity_show">
+      <div class="card_activity_show">
+        <div class="card-header_activity_show">
+          <%= image_tag activity.photo%>
+          <%# , height: 500, width: 700, crop: :fill %>
+        </div>
+        <div class="card-body_activity_show">
+            <span class="tag_activity_show tag-teal_activity_show align-center">
+              <%= link_to new_trip_activity_booking_path(@trip, activity_id: activity.id) do %>
+                <button class="btn btn-primary" id="button-home-3">Add this activity</button>
+            <% end %>
+          </span>
+          <br>
+          <h4><%= activity.name %></h4>
+          <h5><%= activity.category.capitalize %></h5>
+
+          <p><%#= activity.description %></p>
+          <div class="user_activity_show">
+            <div class="user-info_activity_show">
+              <h5><%#= activity.category %></h5>
+              <h5>Price Class: <%= activity.price_class %>/4</h5>
+              <small><%= activity.address %></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<div class="activity-index-container" data-activity-bookings-target="outdoor group">
+<% @outdoor.each do |activity|%>
+  <div class="body_activity_show">
+    <div class="container_activity_show">
+      <div class="card_activity_show">
+        <div class="card-header_activity_show">
+          <%= image_tag activity.photo%>
+          <%# , height: 500, width: 700, crop: :fill %>
+        </div>
+        <div class="card-body_activity_show">
+            <span class="tag_activity_show tag-teal_activity_show align-center">
+              <%= link_to new_trip_activity_booking_path(@trip, activity_id: activity.id) do %>
+                <button class="btn btn-primary" id="button-home-3">Add this activity</button>
+            <% end %>
+          </span>
+          <br>
+          <h4><%= activity.name %></h4>
+          <h5><%= activity.category.capitalize %></h5>
+
+          <p><%#= activity.description %></p>
+          <div class="user_activity_show">
+            <div class="user-info_activity_show">
+              <h5><%#= activity.category %></h5>
+              <h5>Price Class: <%= activity.price_class %>/4</h5>
+              <small><%= activity.address %></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
 </div>
