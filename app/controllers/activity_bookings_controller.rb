@@ -8,6 +8,8 @@ class ActivityBookingsController < ApplicationController
       @museums = @all_activities.where(category: 'museum')
       @clubs = @all_activities.where(category: 'club')
       @clubs = @all_activities.where(category: 'club')
+      @sights = @all_activities.where(category: 'sight')
+      @outdoor = @all_activities.where(category: 'outdoor')
       # @activities = Activity.where("category ILIKE ?", "restaurant")
 
       # "%#{@activity.category}%"
