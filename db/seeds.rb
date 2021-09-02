@@ -15,7 +15,6 @@ end
 
 
 puts 'Browse through our trips ...'
-# madrid = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'Madrid', type_transportation: 'plane', people: 2 }
 paris = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'Paris', type_transportation: 'plane', people: 2 }
 london = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'London', type_transportation: 'plane', people: 2 }
 berlin = { user_id: 1, total_price: 500, booked: true, date_coming: '24-08-2021', date_leaving: '28-08-2021', destination: 'Berlin', type_transportation: 'plane', people: 2 }
