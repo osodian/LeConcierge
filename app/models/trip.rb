@@ -4,8 +4,8 @@ class Trip < ApplicationRecord
   has_many :user_invitations
   has_many :hotel_bookings
   has_many :activity_bookings
-  has_many :activities, through: :activity_bookings
-  has_many :hotels, through: :hotel_bookings
+  has_many :activities, through: :activity_bookings, dependent: :destroy
+  has_many :hotels, through: :hotel_bookings, dependent: :destroy
 
   geocoded_by :destination
   after_validation :geocode, if: :will_save_change_to_destination?
