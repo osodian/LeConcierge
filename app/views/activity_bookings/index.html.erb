@@ -13,9 +13,8 @@
   <div class="body_activity_show">
     <div class="container_activity_show">
       <div class="card_activity_show">
-        <div class="card-header_activity_show">
-          <%= cl_image_tag activity.photo.key%>
-        </div>
+        <div class="card-header_activity_show" style="background-image: url(<%= cl_image_path activity.photo.key, height: 300, crop: :lfill %>)">
+          </div>
         <div class="card-body_activity_show">
             <span class="tag_activity_show tag-teal_activity_show align-center">
               <%= link_to new_trip_activity_booking_path(@trip, activity_id: activity.id) do %>
@@ -46,10 +45,8 @@
   <div class="body_activity_show">
     <div class="container_activity_show">
       <div class="card_activity_show">
-        <div class="card-header_activity_show">
-          <%= image_tag activity.photo%>
-          <%# , height: 500, width: 700, crop: :fill %>
-        </div>
+        <div class="card-header_activity_show" style="background-image: url(<%= cl_image_path activity.photo.key, height: 300, crop: :lfill %>)">
+          </div>
         <div class="card-body_activity_show">
             <span class="tag_activity_show tag-teal_activity_show align-center">
               <%= link_to new_trip_activity_booking_path(@trip, activity_id: activity.id) do %>
@@ -80,10 +77,8 @@
   <div class="body_activity_show">
     <div class="container_activity_show">
       <div class="card_activity_show">
-        <div class="card-header_activity_show">
-          <%= image_tag activity.photo%>
-          <%# , height: 500, width: 700, crop: :fill %>
-        </div>
+        <div class="card-header_activity_show" style="background-image: url(<%= cl_image_path activity.photo.key, height: 300, crop: :lfill %>)">
+          </div>
         <div class="card-body_activity_show">
             <span class="tag_activity_show tag-teal_activity_show align-center">
               <%= link_to new_trip_activity_booking_path(@trip, activity_id: activity.id) do %>
@@ -114,10 +109,9 @@
   <div class="body_activity_show">
     <div class="container_activity_show">
       <div class="card_activity_show">
-        <div class="card-header_activity_show">
-          <%= image_tag activity.photo%>
+          <div class="card-header_activity_show" style="background-image: url(<%= cl_image_path activity.photo.key, height: 300, crop: :lfill %>)">
+          </div>
           <%# , height: 500, width: 700, crop: :fill %>
-        </div>
         <div class="card-body_activity_show">
             <span class="tag_activity_show tag-teal_activity_show align-center">
               <%= link_to new_trip_activity_booking_path(@trip, activity_id: activity.id) do %>
@@ -148,8 +142,8 @@
   <div class="body_activity_show">
     <div class="container_activity_show">
       <div class="card_activity_show">
-        <div class="card-header_activity_show">
-          <%= image_tag activity.photo%>
+        <div class="card-header_activity_show" style="background-image: url(<%= cl_image_path activity.photo.key, height: 250, crop: :fill %>)">
+          <%# <%= image_tag activity.photo%>
           <%# , height: 500, width: 700, crop: :fill %>
         </div>
         <div class="card-body_activity_show">
