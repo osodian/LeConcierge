@@ -110,8 +110,8 @@ major.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/a
 royal_attrs = { city: 'Madrid',name: 'Royal Palace of Madrid', address: 'C. de Bailén, s/n, 28071 Madrid, Spain', description: 'The Royal Palace of Madrid is the official residence of the Spanish royal family at the city of Madrid, although now used only for state ceremonies. The palace has 135,000 m² of floor space and contains 3,418 rooms. ', category: 'sight', price_class: 0  }
 royal = Activity.create!(royal_attrs)
 puts "Created #{royal.name}"
-royal.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_sight/royal_Activity.jpg')),
-                  filename: 'royal_Activity.jpg')
+royal.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_sight/rpm.png')),
+                  filename: 'rpm.png')
 
 
 puts 'Browse through our Outdoors'
@@ -140,11 +140,11 @@ totem = Hotel.create!(totem_attrs)
   puts "Created #{totem.name}"
 totem.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/totem.jpg')),
                   filename: 'totem.jpg')
-four_attrs = { city: 'Madrid', name: 'Four Seasons', address: 'C. de Sevilla, 3, 28014 Madrid, Spain', description: 'Centrally Located In The Heart Of Madrid. Bringing Exciting Restaurants, Bars & An Unmatched Spa Experience. Book Today. 39 Luxurious Suites. Largest Spa In Madrid. 200 Accommodations. Unmatched Spa Experience. Exciting New Restaurants.', price: 770, price_class: 4 }
+four_attrs = { city: 'Madrid', name: 'Four Seasons', address: 'C. de Sevilla, 3, 28014 Madrid, Spain', description: 'Centrally Located In The Heart Of Madrid. Bringing Exciting Restaurants, Bars & An Unmatched Spa Experience. Book Today. 39 Luxurious Suites.', price: 770, price_class: 4 }
 four = Hotel.create!(four_attrs)
   puts "Created #{four.name}"
-four.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/four.jpg')),
-                  filename: 'four.jpg')
+four.photo.attach(io: File.open(Rails.root.join('app/assets/images/activities/activity_hotels/fsm.jpeg')),
+                  filename: 'fsm.jpeg')
 # [totem, four].each do |attributes|
 #   hotel = Hotel.create!(attributes)
 #   puts "Created #{hotel.name}"

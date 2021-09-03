@@ -13,9 +13,8 @@
   <div class="body_activity_show">
     <div class="container_activity_show">
       <div class="card_activity_show">
-        <div class="card-header_activity_show">
-          <%= cl_image_tag hotel.photo.key %>
-        </div>
+        <div class="card-header_activity_show" style="background-image: url(<%= cl_image_path hotel.photo.key, height: 180, crop: :lfill %>)">
+          </div>
         <div class="card-body_activity_show">
           <span class="tag_activity_show tag-teal_activity_show align-center">
             <%= link_to new_trip_hotel_booking_path(@trip, hotel_id: hotel.id) do %>
